@@ -1,0 +1,2 @@
+# akashicoin.github.io
+myblog
