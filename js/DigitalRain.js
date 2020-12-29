@@ -27,7 +27,7 @@ window.onload = function(){
     //4:fillText(str,x,y);ԭ������ȥ����y������λ��
     //�滭�ĺ���
     function draw(){
-        context.fillStyle = "rgba(238,238,238,.08)";//�ڸǲ�
+        context.fillStyle = "rgba(2,2,2,.08)";//�ڸǲ�
         context.fillRect(0,0,W,H);
         //������������ʽ
         context.font = "600 "+fontSize+"px  Georgia";
