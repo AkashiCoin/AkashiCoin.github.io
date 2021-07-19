@@ -23,7 +23,7 @@
     <title>乙女解剖 - 希儿</title>
     <url>/2020/12/27/home/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer23" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer23"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"true","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
       <categories>
         <category>视频</category>
       </categories>
