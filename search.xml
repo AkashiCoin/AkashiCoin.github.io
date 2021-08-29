@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>个人博客（建设中......</title>
+    <title>Sakuraの其他网站</title>
     <url>/2020/12/25/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>欢迎,来到我的<a href="https://yropo.top/">博客</a>!<br>这个是我的<a href="https://pan.yropo.top/">个人网盘</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
+<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
+<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
 <p>Let’s START!</p>
-<hr>
-<p>以下是hexo的默认界面</p>
-<hr>
-<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -47,7 +37,7 @@
     <title>乙女解剖 - 希儿</title>
     <url>/2020/12/27/home/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
-<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -76,7 +66,7 @@
     <url>/2020/12/27/test/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
 <h2 id="刀剑神域剧场版：序列之争"><a href="#刀剑神域剧场版：序列之争" class="headerlink" title="刀剑神域剧场版：序列之争"></a>刀剑神域剧场版：序列之争</h2><hr>
-<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E3%80%90%E7%BB%85%E5%A3%AB%E5%8A%A8%E6%BC%AB%E7%BD%91%E3%80%91%E5%88%80%E5%89%91%E5%89%A7%E5%9C%BA%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E8%AF%B7%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7zmju66.mkv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E3%80%90%E7%BB%85%E5%A3%AB%E5%8A%A8%E6%BC%AB%E7%BD%91%E3%80%91%E5%88%80%E5%89%91%E5%89%A7%E5%9C%BA%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E8%AF%B7%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7zmju66.mkv"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
