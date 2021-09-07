@@ -1,0 +1,45 @@
+/* ��Ȩ����ȥ���»��� */
+.layout_post .post-copyright .post-copyright-info a {
+    text-decoration: none;
+}
+
+/* �����ǳ���ɫ */
+.author-info__name {
+    color: #ff7242;
+}
+
+/* ҳ��͸�� */
+
+#footer {
+    background: transparent !important;
+}
+
+#footer-wrap{
+    color: #db9160;
+}
+
+#footer-wrap a {
+    color: #00c4b6;
+}
+
+/* ������ */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e98c8c;
+    background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #e58a8a;
+}
