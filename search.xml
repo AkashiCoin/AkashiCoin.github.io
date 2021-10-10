@@ -46,7 +46,7 @@
     <title>魔法禁书目录 - 炮姐</title>
     <url>/2020/12/27/test3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr>
-<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -56,7 +56,7 @@
     <url>/2020/12/27/test2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
 <h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr>
-<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -219,11 +219,6 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-  </entry>
-  <entry>
     <title>关于</title>
     <url>/about/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="仅作为个人学术交流使用"><a href="#仅作为个人学术交流使用" class="headerlink" title="仅作为个人学术交流使用"></a>仅作为个人学术交流使用</h2><hr>
@@ -240,13 +235,18 @@
 ]]></content>
   </entry>
   <entry>
-    <title>标签</title>
-    <url>/tags/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
     <title>日程</title>
     <url>/schedule/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
+    <title>标签</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>
