@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Sakuraの其他网站</title>
-    <url>/2020/12/25/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
-<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
-<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
-<p>Let’s START!</p>
-]]></content>
-  </entry>
-  <entry>
     <title>417小剧场</title>
     <url>/2021/08/17/417%E5%B0%8F%E5%89%A7%E5%9C%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="417小剧场"><a href="#417小剧场" class="headerlink" title="417小剧场"></a>417小剧场</h2><hr>
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/417小剧场.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/417小剧场.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -22,57 +13,16 @@
     <title>Arcaea练习记录</title>
     <url>/2021/08/17/Arcaea%E7%BB%83%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
-<h2 id="2021-8-14"><a href="#2021-8-14" class="headerlink" title="2021-8-14"></a>2021-8-14</h2><h3 id="Grievous-Lady-病女-–-AA"><a href="#Grievous-Lady-病女-–-AA" class="headerlink" title="Grievous Lady(病女)  – AA"></a>Grievous Lady(病女)  – AA</h3><div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/%E7%97%85%E5%A5%B3AA_20210817_0249.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<h2 id="2021-8-14"><a href="#2021-8-14" class="headerlink" title="2021-8-14"></a>2021-8-14</h2><h3 id="Grievous-Lady-病女-–-AA"><a href="#Grievous-Lady-病女-–-AA" class="headerlink" title="Grievous Lady(病女)  – AA"></a>Grievous Lady(病女)  – AA</h3><div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/%E7%97%85%E5%A5%B3AA_20210817_0249.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <hr>
-<h2 id="2021-8-16"><a href="#2021-8-16" class="headerlink" title="2021-8-16"></a>2021-8-16</h2><h3 id="Fracture-Ray-骨折光-–-AA"><a href="#Fracture-Ray-骨折光-–-AA" class="headerlink" title="Fracture Ray(骨折光)  – AA"></a>Fracture Ray(骨折光)  – AA</h3><div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/骨折光AA_20210814_2104.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<h2 id="2021-8-16"><a href="#2021-8-16" class="headerlink" title="2021-8-16"></a>2021-8-16</h2><h3 id="Fracture-Ray-骨折光-–-AA"><a href="#Fracture-Ray-骨折光-–-AA" class="headerlink" title="Fracture Ray(骨折光)  – AA"></a>Fracture Ray(骨折光)  – AA</h3><div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/骨折光AA_20210814_2104.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <hr>
 ]]></content>
       <categories>
         <category>视频</category>
       </categories>
-  </entry>
-  <entry>
-    <title>乙女解剖 - 希儿</title>
-    <url>/2020/12/27/home/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
-<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
-      <categories>
-        <category>视频</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>魔法禁书目录 - 炮姐</title>
-    <url>/2020/12/27/test3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr>
-<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      <categories>
-        <category>视频</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</title>
-    <url>/2020/12/27/test2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
-<h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr>
-<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      <categories>
-        <category>视频</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>刀剑神域剧场版：序列之争 在线</title>
-    <url>/2020/12/27/test/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
-<h2 id="刀剑神域剧场版：序列之争"><a href="#刀剑神域剧场版：序列之争" class="headerlink" title="刀剑神域剧场版：序列之争"></a>刀剑神域剧场版：序列之争</h2><hr>
-<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E3%80%90%E7%BB%85%E5%A3%AB%E5%8A%A8%E6%BC%AB%E7%BD%91%E3%80%91%E5%88%80%E5%89%91%E5%89%A7%E5%9C%BA%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E8%AF%B7%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7zmju66.mkv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      <categories>
-        <category>视频</category>
-      </categories>
-      <tags>
-        <tag>刀剑神域</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hexo主题美化-鼠标点击特效</title>
@@ -106,45 +56,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text </span></span><br><span class="line">  <span class="attr">cursor_effect:</span> <span class="string">love</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo主题美化-评论打字特性</title>
-    <url>/2020/12/27/Hexo-typing-effect/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p>
-<p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p>
-<p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p>
-<p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p>
-<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure>
-<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo主题美化-网站运行时间</title>
-    <url>/2020/12/27/Hexo-webtime/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p>
-<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -214,13 +125,227 @@
       </tags>
   </entry>
   <entry>
-    <title>404</title>
-    <url>/404/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <title>Hexo主题美化-评论打字特性</title>
+    <url>/2020/12/27/Hexo-typing-effect/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p>
+<p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p>
+<p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p>
+<p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>Hexo主题美化-网站运行时间</title>
+    <url>/2020/12/27/Hexo-webtime/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</title>
+    <url>/2020/12/27/fight-the-virus/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+<h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr>
+<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+      <categories>
+        <category>视频</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>乙女解剖 - 希儿</title>
+    <url>/2020/12/27/home/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
+<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
+      <categories>
+        <category>视频</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Sakuraの其他网站</title>
+    <url>/2020/12/25/index/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
+<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
+<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
+<p>Let’s START!</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>魔法禁书目录 - 炮姐</title>
+    <url>/2020/12/27/test3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr>
+<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+      <categories>
+        <category>视频</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>利用GitHub+jsdelivr搭建一个图床</title>
+    <url>/2022/01/16/%E5%88%A9%E7%94%A8GitHub-jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p>
+</blockquote>
+<h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol>
+<li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
+<li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
+<li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
+<li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul>
+<li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
+</ul>
+<h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote>
+<p>前往下载PicG（<a href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p>
+</blockquote>
+<p>设定仓库名：按照用户名/图床仓库名 的格式填写</p>
+<p>设定分支名：main</p>
+<p>设定 Token：粘贴之前生成的Token</p>
+<p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
+<p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a href="https://chuibi.cn/">吹逼图床</a></p>
+<ul>
+<li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  回到picGo进行配置</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p>
+<blockquote>
+<p>值得注意的是,理论上讲GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m[也就是仓库大小]仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</blockquote>
+<p>此外 PicGo还有相册功能，可以对已上传的图片进行删除，修改链接等快捷操作,PicGo还可以生成不同格式的链接、支持批量上传、快捷键上传、自定义链接格式、上传前重命名等，更多功能自己去探索吧！</p>
+<p>完成之后就可以畅快书写，上传直接快捷键完成，复制粘贴，再也不用手动去拖动图片上传了，更过功能尽情去体验吧！</p>
+]]></content>
+      <categories>
+        <category>网站</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>jsdelivr</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用heroku + cloudflare搭建v2ray免费科学上网</title>
+    <url>/2022/01/16/%E5%88%A9%E7%94%A8heroku-cloudflare%E6%90%AD%E5%BB%BAv2ray%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p> Heroku免费套餐每月只有550小时的免费时间，适合在非常时期当做备胎使用</p>
+</li>
+<li><p> Heroku对流量检测有些严格，请避免大流量消耗</p>
+</li>
+<li><p> 引用项目原作者的话：Heroku提供给我们免费的服务，我们不应该滥用它</p>
+</li>
+<li><p> Heroku免费容器未使用超过一段时间（三十分钟左右）就会休眠</p>
+</li>
+</ol>
+<h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol>
+<li> 一个非国内邮箱地址</li>
+<li> Heroku与Cloudflare国内访问速度并不理想，可使用非国内网络环境</li>
+<li> 翻译工具，也可以使用Google Chrome浏览器</li>
+<li> V2Ray软件；<a href="https://github.com/2dust/v2rayN/releases">点击下载</a>  </li>
+</ol>
+<h2 id="一、服务端部署"><a href="#一、服务端部署" class="headerlink" title="一、服务端部署"></a>一、服务端部署</h2><h3 id="1-1-注册Heroku账户"><a href="#1-1-注册Heroku账户" class="headerlink" title="1.1 注册Heroku账户"></a>1.1 注册Heroku账户</h3><p>很简单，根据官网的提示操作就行:<a href="https://signup.heroku.com/">点击注册</a></p>
+<p>注意：请使用外网IP注册，且请准备好翻译工具，并在收到邮件后激活账户；注册时不能使用QQ邮箱</p>
+<h3 id="1-2-在Heroku部署v2ray"><a href="#1-2-在Heroku部署v2ray" class="headerlink" title="1.2 在Heroku部署v2ray"></a>1.2 在Heroku部署v2ray</h3><p>点击下方按钮部署应用</p>
+<blockquote>
+<p><a href="https://dashboard.heroku.com/new?template=https://github.com/AkashiCoin/heroku-v2ray"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p>
+</blockquote>
+<p>ps: （2022.01.16）最近大佬们的仓库都被heroku给ban了，所以想要使用可以自建一个仓库，然后import大佬Fbclswl0827的heroku-v2ray项目自行部署</p>
+<p>ps: 上面部署方式是我自己的仓库</p>
+<p>App name随便填写，可用就行；Choose a region就是你的服务器地区；UUID可自行修改（建议修改，使用默认UUID会使节点暴露在危险下）；然后点击<code>Deploy app</code>系统会自动部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161405003.png"></p>
+<p>稍微等待一会儿，几秒的样子，直到全部打勾变绿</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161457921.png"></p>
+<h2 id="二、客户端使用"><a href="#二、客户端使用" class="headerlink" title="二、客户端使用"></a>二、客户端使用</h2><h3 id="2-1-相关配置信息"><a href="#2-1-相关配置信息" class="headerlink" title="2.1 相关配置信息"></a>2.1 相关配置信息</h3><p>点击Manage App进入你的项目；或者在<a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a>中找的到你的项目并进入</p>
+<p>注意：你会看到一个项目，点击上方的<code>Settings</code>进入，查看你的V2Ray具体配置，如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161458347.png"></p>
+<p>点击<code>Reveal Config Vars</code>显示V2RrayN相关配置信息，如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161500120.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161501582.png"></p>
+<h3 id="2-2-V2rayN配置"><a href="#2-2-V2rayN配置" class="headerlink" title="2.2 V2rayN配置"></a>2.2 V2rayN配置</h3><p>开始配置V2Ray，如果你记好了以上两个（那串字母UUID和二级域名xxxx.herokuapp.com）</p>
+<p>ps: 二级域名不用加<code>https://</code>，直接填域名就好</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161519886.png"></p>
+<p>最基础的配置完成了，可以发现节点的速度慢的令人发指，接下来我们利用cloudflare + 自选ip进行加速</p>
+<h2 id="三、Cloudflare-Workers反代加速"><a href="#三、Cloudflare-Workers反代加速" class="headerlink" title="三、Cloudflare Workers反代加速"></a>三、Cloudflare Workers反代加速</h2><p>对速度有要求的人群<s>（强迫症患者）</s>可以看一下；主要是使用Cloudflare Workers加速，虽然免费套餐有调用限制，但是一般个人使用不可能用完</p>
+<h3 id="3-1-创建Cloudflare-Workers"><a href="#3-1-创建Cloudflare-Workers" class="headerlink" title="3.1 创建Cloudflare Workers"></a>3.1 创建Cloudflare Workers</h3><p>在<a href="https://dash.cloudflare.com/">Cloudflare Workers</a>中创建一个Workers</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161538514.png"><br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161542604.png"></p>
+<p>点击<code>快速编辑</code>进入项目编辑<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161545214.png"><br>2.  将原有的示例代码全部删除，复制如下代码，并将第四行的xxx.herokuapp.com 替换为你的V2Ray的地址    ps: 不需要<code>https://</code></p>
+<figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line">	<span class="string">&quot;fetch&quot;</span>,event =&gt; &#123;</span><br><span class="line">		<span class="keyword">let</span> url=<span class="keyword">new</span> URL(event.<span class="built_in">request</span>.url);</span><br><span class="line">		url.hostname=<span class="string">&quot;xxxx.herokuapp.com&quot;</span>;</span><br><span class="line">		<span class="keyword">let</span> <span class="built_in">request</span>=<span class="keyword">new</span> <span class="built_in">Request</span>(url,event.<span class="built_in">request</span>);</span><br><span class="line">		event. respondWith(</span><br><span class="line">			fetch(<span class="built_in">request</span>)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>点击右侧的<code>发送</code>按钮，看最后一行是否出现了<code>Bad Request</code>，出现则代表成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161554105.png"></p>
+<p>成功后，点击<code>保存并部署</code>，并记下你的Workers二级域名</p>
+<h3 id="3-2修改V2rayN中的配置"><a href="#3-2修改V2rayN中的配置" class="headerlink" title="3.2修改V2rayN中的配置"></a>3.2修改V2rayN中的配置</h3><p>把V2RayN中原来的域名改为现在的Workers域名就行了，其实利用Cloudflare Workers进行反代以后速度已经可以了，但是优选ip以后速度会更加快<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161557052.png"></p>
+<p><strong>对速度有更高追求以及不怕折腾的人可以接着往下看</strong></p>
+<h2 id="四、Cloudflare自选IP"><a href="#四、Cloudflare自选IP" class="headerlink" title="四、Cloudflare自选IP"></a>四、Cloudflare自选IP</h2><p>点击下载<a href="https://github.com/badafans/better-cloudflare-ip/releases/lastest/download/batch.zip">IP自选程序</a>，解压，在Windows系统下运行</p>
+<p>其他的<code>使用说明.txt</code>文件中都有说，在此就不过多赘述</p>
+<p>最后，配置V2Ray：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161617481.png"></p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" title="注意事项"></a>注意事项</h3><p>由于各地的网络情况每天都不同，所以每天（甚至是每半天）的最优节点都不尽相同；但对于一个应急用的已经足够了</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><a href="#%E6%95%88%E6%9E%9C%E5%9B%BE" title="效果图"></a>效果图</h2><p>折腾完一圈后的测速：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161619689.png"><em>可见heroku是利用的amazon服务器，而这个速度对于免费的来说已经相当快了</em></p>
+<p>实际使用效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161623744.png"><em>从YouTube的视频测试来看还是不错的</em></p>
+<p>比某些大部分的机场免费套餐都好，甚至直逼少数机场的初级付费套餐；对于我这样的穷学生来讲已经够用的。</p>
+]]></content>
+      <categories>
+        <category>科学上网</category>
+      </categories>
+      <tags>
+        <tag>v2ray</tag>
+        <tag>heroku</tag>
+        <tag>cloudflare</tag>
+        <tag>科学上网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>404</title>
+    <url>/404/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
@@ -234,15 +359,20 @@
 ]]></content>
   </entry>
   <entry>
-    <title>link</title>
-    <url>/link/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
-]]></content>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
     <title>日程</title>
     <url>/schedule/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
+    <title>link</title>
+    <url>/link/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+]]></content>
   </entry>
   <entry>
     <title>标签</title>
