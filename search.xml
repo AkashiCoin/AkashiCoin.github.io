@@ -1,364 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>使用脚本自动抢Oracle ARM服务器，并使用tg机器人通知</title>
-      <link href="/2022/01/17/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%8A%A2Oracle-ARM%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%B9%B6%E4%BD%BF%E7%94%A8tg%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E7%9F%A5/"/>
-      <url>/2022/01/17/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%8A%A2Oracle-ARM%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%B9%B6%E4%BD%BF%E7%94%A8tg%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E7%9F%A5/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="需要用到的"><a href="#需要用到的" class="headerlink" title="需要用到的"></a>需要用到的</h2><ul><li>  一台 vps 服务器</li><li>  Terraform</li><li>  oci-cli  </li></ul><h3 id="一、安装-Terraform"><a href="#一、安装-Terraform" class="headerlink" title="一、安装 Terraform"></a>一、安装 Terraform</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://releases.hashicorp.com/terraform/<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>/terraform\_<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>\_linux\_amd<span class="number">64</span>.zip</span><br></pre></td></tr></table></figure><p><strong>解压，并移动文件 terraform 到 /usr/bin 目录</strong></p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">unzip</span> terraform\_<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>\_linux\_amd<span class="number">64</span>.zip  </span><br><span class="line"><span class="attribute">mv</span> terraform /usr/bin</span><br></pre></td></tr></table></figure><p><strong>使用以下命令查看版本</strong></p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform <span class="built_in">version</span></span><br></pre></td></tr></table></figure><p><strong>显示如下则安装成功</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623394981402.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623394981402.png" alt="file" title="%title插图%num"></a></p><h3 id="二、安装-oci-cli-工具"><a href="#二、安装-oci-cli-工具" class="headerlink" title="二、安装 oci-cli 工具"></a>二、安装 oci-cli 工具</h3><p><strong>使用以下命令安装 oci-cli 工具</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl –L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure><p><strong>一直回车即可</strong><br><strong>当出现:</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395540213.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395540213.png" alt="file" title="%title插图%num"></a></p><p><strong>这个时候，是在提示你输入 y 回车，会自动添加环境变量<br>之后又是一直回车。出现如下提示表示安装成功。可以用：<code>oci -v</code> 查询版本</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395572528.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395572528.png" alt="file" title="%title插图%num"></a></p><h3 id="三、复制用户和租户的-ocid"><a href="#三、复制用户和租户的-ocid" class="headerlink" title="三、复制用户和租户的 ocid"></a>三、复制用户和租户的 ocid</h3><p><strong>甲骨文后台右上角 — 用户设置 — 点击用户以及租户，在信息栏中有我们需要的 ID，分别点击复制，可以保存在记事本备份好</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395984815.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395984815.png" alt="file" title="%title插图%num"></a></p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396103425.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396103425.png" alt="file" title="%title插图%num"></a></p><h3 id="四、配置-cli"><a href="#四、配置-cli" class="headerlink" title="四、配置 cli"></a>四、配置 cli</h3><p><strong>输入如下代码开始配置，配置的路径默认在 root 目录</strong></p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oci <span class="built_in">setup</span> <span class="built_in">config</span>  </span><br></pre></td></tr></table></figure><p><strong>具体配置看下面</strong></p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">location</span> <span class="string">for</span> <span class="string">your</span> <span class="string">config</span> <span class="string">\[/root/.oci/config\]:</span>   </span><br><span class="line"><span class="attr">Enter a user OCID:</span> <span class="comment">#输入你的用户OCID  </span></span><br><span class="line"><span class="attr">Enter a tenancy OCID:</span> <span class="comment">#输入你的租户OCID  </span></span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">region</span> <span class="string">by</span> <span class="string">index</span> <span class="string">or</span> <span class="string">name(e.g.</span>  </span><br><span class="line"><span class="attr">1:</span> <span class="string">ap-chiyoda-1,</span> <span class="attr">2:</span> <span class="string">ap-chuncheon-1,</span> <span class="attr">3:</span> <span class="string">ap-hyderabad-1,</span> <span class="attr">4:</span> <span class="string">ap-melbourne-1,</span> <span class="attr">5:</span> <span class="string">ap-mumbai-1,6:</span> <span class="string">ap-osaka-1,</span> <span class="attr">7:</span> <span class="string">ap-seoul-1,</span> <span class="attr">8:</span> <span class="string">ap-sydney-1,</span> <span class="attr">9:</span> <span class="string">ap-tokyo-1,</span> <span class="attr">10:</span> <span class="string">ca-montreal-1,11:</span> <span class="string">ca-toronto-1,</span> <span class="attr">12:</span> <span class="string">eu-amsterdam-1,</span> <span class="attr">13:</span> <span class="string">eu-frankfurt-1,</span> <span class="attr">14:</span> <span class="string">eu-zurich-1,</span> <span class="attr">15:</span> <span class="string">me-dubai-1,16:</span> <span class="string">me-jeddah-1,</span> <span class="attr">17:</span> <span class="string">sa-santiago-1,</span> <span class="attr">18:</span> <span class="string">sa-saopaulo-1,</span> <span class="attr">19:</span> <span class="string">uk-cardiff-1,</span> <span class="attr">20:</span> <span class="string">uk-gov-cardiff-1,21:</span> <span class="string">uk-gov-london-1,</span> <span class="attr">22:</span> <span class="string">uk-london-1,</span> <span class="attr">23:</span> <span class="string">us-ashburn-1,</span> <span class="attr">24:</span> <span class="string">us-gov-ashburn-1,</span> <span class="attr">25:</span> <span class="string">us-gov-chicago-1,26:</span> <span class="string">us-gov-phoenix-1,</span> <span class="attr">27:</span> <span class="string">us-langley-1,</span> <span class="attr">28:</span> <span class="string">us-luke-1,</span> <span class="attr">29:</span> <span class="string">us-phoenix-1,30:</span> <span class="string">us-sanjose-1):</span> <span class="number">9</span>  <span class="comment">#这里选择你的区域  </span></span><br><span class="line"><span class="string">Do</span> <span class="string">you</span> <span class="string">want</span> <span class="string">to</span> <span class="string">generate</span> <span class="string">a</span> <span class="string">new</span> <span class="string">API</span> <span class="string">Signing</span> <span class="string">RSA</span> <span class="string">key</span> <span class="string">pair?</span> <span class="string">(If</span> <span class="string">you</span> <span class="string">decline</span> <span class="string">you</span> <span class="string">will</span> <span class="string">be</span> <span class="string">asked</span> <span class="string">to</span> <span class="string">supply</span> <span class="string">the</span> <span class="string">path</span> <span class="string">to</span> <span class="string">an</span> <span class="string">existing</span> <span class="string">key.)</span> <span class="string">\[Y/n\]:</span> <span class="string">y</span>  <span class="comment">#输入y生成公钥  </span></span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">directory</span> <span class="string">for</span> <span class="string">your</span> <span class="string">keys</span> <span class="string">to</span> <span class="string">be</span> <span class="string">created</span> <span class="string">\[/root/.oci\]:</span>   </span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">name</span> <span class="string">for</span> <span class="string">your</span> <span class="string">key</span> <span class="string">\[oci\_api\_key\]:</span>   </span><br><span class="line"><span class="attr">Public key written to:</span> <span class="string">/root/.oci/oci\_api\_key\_public.pem</span>  </span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">passphrase</span> <span class="string">for</span> <span class="string">your</span> <span class="string">private</span> <span class="string">key</span> <span class="string">(empty</span> <span class="string">for</span> <span class="literal">no</span> <span class="string">passphrase):</span>   </span><br><span class="line"><span class="attr">Private key written to:</span> <span class="string">/root/.oci/oci\_api\_key.pem</span>  </span><br><span class="line"><span class="attr">Fingerprint:</span>   </span><br><span class="line"><span class="string">Config</span> <span class="string">written</span> <span class="string">to</span> <span class="string">/root/.oci/config</span></span><br><span class="line"></span><br><span class="line"> <span class="string">If</span> <span class="string">you</span> <span class="string">haven&#x27;t</span> <span class="string">already</span> <span class="string">uploaded</span> <span class="string">your</span> <span class="string">API</span> <span class="string">Signing</span> <span class="string">public</span> <span class="string">key</span> <span class="string">through</span> <span class="string">the</span>  </span><br><span class="line"> <span class="string">console,</span> <span class="string">follow</span> <span class="string">the</span> <span class="string">instructions</span> <span class="string">on</span> <span class="string">the</span> <span class="string">page</span> <span class="string">linked</span> <span class="string">below</span> <span class="string">in</span> <span class="string">the</span> <span class="string">section</span></span><br><span class="line"> <span class="attr">&#x27;How to upload the public key&#x27;:</span></span><br><span class="line"> </span><br><span class="line"> <span class="string">https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#How2</span> </span><br></pre></td></tr></table></figure><p><strong>复制生成的公钥，使用以下命令获取公钥</strong></p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /root/.oci/oci\_api\_key\_public.pem</span><br></pre></td></tr></table></figure><p>把显示出来的内容复制，并且添加到<br>甲骨文后台 — 用户设置 — 资源 —API 秘钥 — 添加 API 秘钥  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396703012.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396703012.png"></a></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">oci iam availability-domain list</span></span><br></pre></td></tr></table></figure><p><strong>提示以下内容则是配置正确</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396861886.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396861886.png"></a></p><h3 id="五、Terraform-环境初始化"><a href="#五、Terraform-环境初始化" class="headerlink" title="五、Terraform 环境初始化"></a>五、Terraform 环境初始化</h3><h4 id="1、我们先获取甲骨文的-Terraform-脚本"><a href="#1、我们先获取甲骨文的-Terraform-脚本" class="headerlink" title="1、我们先获取甲骨文的 Terraform 脚本"></a>1、我们先获取甲骨文的 Terraform 脚本</h4><p><strong>点击 创建 VM 实例</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397006677.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397006677.png"></a></p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397155148.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397155148.png"></a></p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397237969.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397237969.png"></a></p><p><strong>一直下一步</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397917222.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397917222.png"></a></p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397993340.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397993340.png"></a></p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398056711.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398056711.png"></a></p><h4 id="2、配置-Terraform"><a href="#2、配置-Terraform" class="headerlink" title="2、配置 Terraform"></a>2、配置 Terraform</h4><p><strong>使用以下命令创建 Terraform 运行目录</strong></p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/</span><br><span class="line"><span class="built_in">mkdir</span> terraform-learning &amp;&amp; <span class="keyword">cd</span> terraform-learning</span><br></pre></td></tr></table></figure><p><strong>将刚刚解压到桌面的 main.tf 文件 上传到这个目录</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398566301.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398566301.png"></a></p><p><strong>将目录设置为 Terraform 运行目录</strong></p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform <span class="keyword">init</span></span><br></pre></td></tr></table></figure><p><strong>以上完成后，开始创建任务，用命令：（注意还是在 /opt/terraform-learning）</strong></p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform <span class="built_in">apply</span></span><br></pre></td></tr></table></figure><p><strong>执行完上面命令之后，会提示输入 yes</strong>  </p><p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398738195.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398738195.png"></a></p><p><strong>上图还能看到 API 返回 Error Message: Out of host capacity, 提示主机容量不足，下面就用脚本来不停刷就行了</strong></p><h3 id="六、部署脚本"><a href="#六、部署脚本" class="headerlink" title="六、部署脚本"></a>六、部署脚本</h3><p><strong>终于可以部署脚本来抢服务器了，请先获取 telegram 账号 id，并且关注通知机器人 @oracle_message_bot<br>TG id 请通过 @userinfobot 机器人获取<br>在 root 目录下新建一个 terraform.sh</strong></p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /root  </span><br><span class="line"><span class="keyword">vi</span> terraform.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure><p><strong>写入以下内容</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">path=<span class="string">&#x27;/opt/terraform-learning/&#x27;</span></span><br><span class="line">FIND_FILE=<span class="string">&quot;/root/terraform.log&quot;</span> <span class="comment">#日志文件位置</span></span><br><span class="line">FIND_STR=<span class="string">&quot;Apply complete!&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$path</span> &amp;&amp;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;yes&#x27;</span> | terraform apply -lock=<span class="literal">false</span></span><br><span class="line">    sleep 1s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">if</span> [ grep -c <span class="string">&quot;<span class="variable">$FIND_STR</span>&quot;</span> <span class="variable">$FIND_FILE</span> -ne <span class="string">&#x27;20&#x27;</span> ];<span class="keyword">then</span></span><br><span class="line">    curl --location --request POST <span class="string">&#x27;https://api.telegram.org/bot2124631392:AAHtVpEm7KRWo6ulYNG_Zbz98irpmTSIf8o/sendMessage&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;text=服务器创建成功！&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;chat_id=你的tg id&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;parse_mode=markdown&#x27;</span></span><br><span class="line">pkill terraform</span><br><span class="line">    <span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p><strong>给 Shell 脚本赋予执行权限：</strong></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">chmod</span> +<span class="selector-tag">x</span> <span class="selector-tag">terraform</span><span class="selector-class">.sh</span></span><br></pre></td></tr></table></figure><p><strong>使用以下命令后台执行脚本</strong></p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./terraform.sh &gt;&gt; terraform.<span class="built_in">log</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure><h4 id="如何结束脚本？"><a href="#如何结束脚本？" class="headerlink" title="如何结束脚本？"></a>如何结束脚本？</h4><p><strong>使用以下命令结束脚本</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pkill terraform</span></span><br></pre></td></tr></table></figure><blockquote><p>转载自 HM 的博客 <a href="https://him.plus/archives/274">https://him.plus/archives/274</a></p></blockquote>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Sakuraの其他网站</title>
+    <url>/2020/12/25/index/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
+<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
+<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
+<p>Let’s START!</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用脚本自动抢Oracle ARM服务器，并使用tg机器人通知</title>
+    <url>/2022/01/17/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%8A%A2Oracle-ARM%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%B9%B6%E4%BD%BF%E7%94%A8tg%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E7%9F%A5/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="需要用到的"><a href="#需要用到的" class="headerlink" title="需要用到的"></a>需要用到的</h2><ul>
+<li>  一台 vps 服务器</li>
+<li>  Terraform</li>
+<li>  oci-cli  </li>
+</ul>
+<h3 id="一、安装-Terraform"><a href="#一、安装-Terraform" class="headerlink" title="一、安装 Terraform"></a>一、安装 Terraform</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://releases.hashicorp.com/terraform/<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>/terraform\_<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>\_linux\_amd<span class="number">64</span>.zip</span><br></pre></td></tr></table></figure>
+<p><strong>解压，并移动文件 terraform 到 /usr/bin 目录</strong></p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">unzip</span> terraform\_<span class="number">0</span>.<span class="number">15</span>.<span class="number">5</span>\_linux\_amd<span class="number">64</span>.zip  </span><br><span class="line"><span class="attribute">mv</span> terraform /usr/bin</span><br></pre></td></tr></table></figure>
+<p><strong>使用以下命令查看版本</strong></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">terraform <span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+<p><strong>显示如下则安装成功</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623394981402.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623394981402.png" alt="file" title="%title插图%num"></a></p>
+<h3 id="二、安装-oci-cli-工具"><a href="#二、安装-oci-cli-工具" class="headerlink" title="二、安装 oci-cli 工具"></a>二、安装 oci-cli 工具</h3><p><strong>使用以下命令安装 oci-cli 工具</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl –L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>一直回车即可</strong><br><strong>当出现:</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395540213.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395540213.png" alt="file" title="%title插图%num"></a></p>
+<p><strong>这个时候，是在提示你输入 y 回车，会自动添加环境变量<br>之后又是一直回车。出现如下提示表示安装成功。可以用：<code>oci -v</code> 查询版本</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395572528.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395572528.png" alt="file" title="%title插图%num"></a></p>
+<h3 id="三、复制用户和租户的-ocid"><a href="#三、复制用户和租户的-ocid" class="headerlink" title="三、复制用户和租户的 ocid"></a>三、复制用户和租户的 ocid</h3><p><strong>甲骨文后台右上角 — 用户设置 — 点击用户以及租户，在信息栏中有我们需要的 ID，分别点击复制，可以保存在记事本备份好</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623395984815.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623395984815.png" alt="file" title="%title插图%num"></a></p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396103425.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396103425.png" alt="file" title="%title插图%num"></a></p>
+<h3 id="四、配置-cli"><a href="#四、配置-cli" class="headerlink" title="四、配置 cli"></a>四、配置 cli</h3><p><strong>输入如下代码开始配置，配置的路径默认在 root 目录</strong></p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">oci <span class="built_in">setup</span> <span class="built_in">config</span>  </span><br></pre></td></tr></table></figure>
+<p><strong>具体配置看下面</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">location</span> <span class="string">for</span> <span class="string">your</span> <span class="string">config</span> <span class="string">\[/root/.oci/config\]:</span>   </span><br><span class="line"><span class="attr">Enter a user OCID:</span> <span class="comment">#输入你的用户OCID  </span></span><br><span class="line"><span class="attr">Enter a tenancy OCID:</span> <span class="comment">#输入你的租户OCID  </span></span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">region</span> <span class="string">by</span> <span class="string">index</span> <span class="string">or</span> <span class="string">name(e.g.</span>  </span><br><span class="line"><span class="attr">1:</span> <span class="string">ap-chiyoda-1,</span> <span class="attr">2:</span> <span class="string">ap-chuncheon-1,</span> <span class="attr">3:</span> <span class="string">ap-hyderabad-1,</span> <span class="attr">4:</span> <span class="string">ap-melbourne-1,</span> <span class="attr">5:</span> <span class="string">ap-mumbai-1,6:</span> <span class="string">ap-osaka-1,</span> <span class="attr">7:</span> <span class="string">ap-seoul-1,</span> <span class="attr">8:</span> <span class="string">ap-sydney-1,</span> <span class="attr">9:</span> <span class="string">ap-tokyo-1,</span> <span class="attr">10:</span> <span class="string">ca-montreal-1,11:</span> <span class="string">ca-toronto-1,</span> <span class="attr">12:</span> <span class="string">eu-amsterdam-1,</span> <span class="attr">13:</span> <span class="string">eu-frankfurt-1,</span> <span class="attr">14:</span> <span class="string">eu-zurich-1,</span> <span class="attr">15:</span> <span class="string">me-dubai-1,16:</span> <span class="string">me-jeddah-1,</span> <span class="attr">17:</span> <span class="string">sa-santiago-1,</span> <span class="attr">18:</span> <span class="string">sa-saopaulo-1,</span> <span class="attr">19:</span> <span class="string">uk-cardiff-1,</span> <span class="attr">20:</span> <span class="string">uk-gov-cardiff-1,21:</span> <span class="string">uk-gov-london-1,</span> <span class="attr">22:</span> <span class="string">uk-london-1,</span> <span class="attr">23:</span> <span class="string">us-ashburn-1,</span> <span class="attr">24:</span> <span class="string">us-gov-ashburn-1,</span> <span class="attr">25:</span> <span class="string">us-gov-chicago-1,26:</span> <span class="string">us-gov-phoenix-1,</span> <span class="attr">27:</span> <span class="string">us-langley-1,</span> <span class="attr">28:</span> <span class="string">us-luke-1,</span> <span class="attr">29:</span> <span class="string">us-phoenix-1,30:</span> <span class="string">us-sanjose-1):</span> <span class="number">9</span>  <span class="comment">#这里选择你的区域  </span></span><br><span class="line"><span class="string">Do</span> <span class="string">you</span> <span class="string">want</span> <span class="string">to</span> <span class="string">generate</span> <span class="string">a</span> <span class="string">new</span> <span class="string">API</span> <span class="string">Signing</span> <span class="string">RSA</span> <span class="string">key</span> <span class="string">pair?</span> <span class="string">(If</span> <span class="string">you</span> <span class="string">decline</span> <span class="string">you</span> <span class="string">will</span> <span class="string">be</span> <span class="string">asked</span> <span class="string">to</span> <span class="string">supply</span> <span class="string">the</span> <span class="string">path</span> <span class="string">to</span> <span class="string">an</span> <span class="string">existing</span> <span class="string">key.)</span> <span class="string">\[Y/n\]:</span> <span class="string">y</span>  <span class="comment">#输入y生成公钥  </span></span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">directory</span> <span class="string">for</span> <span class="string">your</span> <span class="string">keys</span> <span class="string">to</span> <span class="string">be</span> <span class="string">created</span> <span class="string">\[/root/.oci\]:</span>   </span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">name</span> <span class="string">for</span> <span class="string">your</span> <span class="string">key</span> <span class="string">\[oci\_api\_key\]:</span>   </span><br><span class="line"><span class="attr">Public key written to:</span> <span class="string">/root/.oci/oci\_api\_key\_public.pem</span>  </span><br><span class="line"><span class="string">Enter</span> <span class="string">a</span> <span class="string">passphrase</span> <span class="string">for</span> <span class="string">your</span> <span class="string">private</span> <span class="string">key</span> <span class="string">(empty</span> <span class="string">for</span> <span class="literal">no</span> <span class="string">passphrase):</span>   </span><br><span class="line"><span class="attr">Private key written to:</span> <span class="string">/root/.oci/oci\_api\_key.pem</span>  </span><br><span class="line"><span class="attr">Fingerprint:</span>   </span><br><span class="line"><span class="string">Config</span> <span class="string">written</span> <span class="string">to</span> <span class="string">/root/.oci/config</span></span><br><span class="line"></span><br><span class="line"> <span class="string">If</span> <span class="string">you</span> <span class="string">haven&#x27;t</span> <span class="string">already</span> <span class="string">uploaded</span> <span class="string">your</span> <span class="string">API</span> <span class="string">Signing</span> <span class="string">public</span> <span class="string">key</span> <span class="string">through</span> <span class="string">the</span>  </span><br><span class="line"> <span class="string">console,</span> <span class="string">follow</span> <span class="string">the</span> <span class="string">instructions</span> <span class="string">on</span> <span class="string">the</span> <span class="string">page</span> <span class="string">linked</span> <span class="string">below</span> <span class="string">in</span> <span class="string">the</span> <span class="string">section</span></span><br><span class="line"> <span class="attr">&#x27;How to upload the public key&#x27;:</span></span><br><span class="line"> </span><br><span class="line"> <span class="string">https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#How2</span> </span><br></pre></td></tr></table></figure>
+<p><strong>复制生成的公钥，使用以下命令获取公钥</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">cat /root/.oci/oci\_api\_key\_public.pem</span><br></pre></td></tr></table></figure>
+<p>把显示出来的内容复制，并且添加到<br>甲骨文后台 — 用户设置 — 资源 —API 秘钥 — 添加 API 秘钥  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396703012.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396703012.png"></a></p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">oci iam availability-domain list</span></span><br></pre></td></tr></table></figure>
+<p><strong>提示以下内容则是配置正确</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623396861886.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623396861886.png"></a></p>
+<h3 id="五、Terraform-环境初始化"><a href="#五、Terraform-环境初始化" class="headerlink" title="五、Terraform 环境初始化"></a>五、Terraform 环境初始化</h3><h4 id="1、我们先获取甲骨文的-Terraform-脚本"><a href="#1、我们先获取甲骨文的-Terraform-脚本" class="headerlink" title="1、我们先获取甲骨文的 Terraform 脚本"></a>1、我们先获取甲骨文的 Terraform 脚本</h4><p><strong>点击 创建 VM 实例</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397006677.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397006677.png"></a></p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397155148.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397155148.png"></a></p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397237969.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397237969.png"></a></p>
+<p><strong>一直下一步</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397917222.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397917222.png"></a></p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623397993340.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623397993340.png"></a></p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398056711.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398056711.png"></a></p>
+<h4 id="2、配置-Terraform"><a href="#2、配置-Terraform" class="headerlink" title="2、配置 Terraform"></a>2、配置 Terraform</h4><p><strong>使用以下命令创建 Terraform 运行目录</strong></p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/</span><br><span class="line"><span class="built_in">mkdir</span> terraform-learning &amp;&amp; <span class="keyword">cd</span> terraform-learning</span><br></pre></td></tr></table></figure>
+<p><strong>将刚刚解压到桌面的 main.tf 文件 上传到这个目录</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398566301.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398566301.png"></a></p>
+<p><strong>将目录设置为 Terraform 运行目录</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">terraform <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+<p><strong>以上完成后，开始创建任务，用命令：（注意还是在 /opt/terraform-learning）</strong></p>
+<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line">terraform <span class="built_in">apply</span></span><br></pre></td></tr></table></figure>
+<p><strong>执行完上面命令之后，会提示输入 yes</strong>  </p>
+<p><a href="https://him.plus/wp-content/uploads/2021/06/image-1623398738195.png"><img src="https://him.plus/wp-content/uploads/2021/06/image-1623398738195.png"></a></p>
+<p><strong>上图还能看到 API 返回 Error Message: Out of host capacity, 提示主机容量不足，下面就用脚本来不停刷就行了</strong></p>
+<h3 id="六、部署脚本"><a href="#六、部署脚本" class="headerlink" title="六、部署脚本"></a>六、部署脚本</h3><p><strong>终于可以部署脚本来抢服务器了，请先获取 telegram 账号 id，并且关注通知机器人 @oracle_message_bot<br>TG id 请通过 @userinfobot 机器人获取<br>在 root 目录下新建一个 terraform.sh</strong></p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> /root  </span><br><span class="line"><span class="keyword">vi</span> terraform.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<p><strong>写入以下内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">path=<span class="string">&#x27;/opt/terraform-learning/&#x27;</span></span><br><span class="line">FIND_FILE=<span class="string">&quot;/root/terraform.log&quot;</span> <span class="comment">#日志文件位置</span></span><br><span class="line">FIND_STR=<span class="string">&quot;Apply complete!&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$path</span> &amp;&amp;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;yes&#x27;</span> | terraform apply -lock=<span class="literal">false</span></span><br><span class="line">    sleep 1s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">if</span> [ grep -c <span class="string">&quot;<span class="variable">$FIND_STR</span>&quot;</span> <span class="variable">$FIND_FILE</span> -ne <span class="string">&#x27;20&#x27;</span> ];<span class="keyword">then</span></span><br><span class="line">    curl --location --request POST <span class="string">&#x27;https://api.telegram.org/bot2124631392:AAHtVpEm7KRWo6ulYNG_Zbz98irpmTSIf8o/sendMessage&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;text=服务器创建成功！&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;chat_id=你的tg id&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;parse_mode=markdown&#x27;</span></span><br><span class="line">pkill terraform</span><br><span class="line">    <span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p><strong>给 Shell 脚本赋予执行权限：</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">chmod</span> +<span class="selector-tag">x</span> <span class="selector-tag">terraform</span><span class="selector-class">.sh</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用以下命令后台执行脚本</strong></p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">nohup ./terraform.sh &gt;&gt; terraform.<span class="built_in">log</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
+<h4 id="如何结束脚本？"><a href="#如何结束脚本？" class="headerlink" title="如何结束脚本？"></a>如何结束脚本？</h4><p><strong>使用以下命令结束脚本</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pkill terraform</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>转载自 HM 的博客 <a href="https://him.plus/archives/274">https://him.plus/archives/274</a></p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> vps </category>
-          
+        <category>vps</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 科学上网 </tag>
-            
-            <tag> vps </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>利用GitHub+jsdelivr搭建一个图床</title>
-      <link href="/2022/01/16/%E5%88%A9%E7%94%A8GitHub-jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BA%8A/"/>
-      <url>/2022/01/16/%E5%88%A9%E7%94%A8GitHub-jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BA%8A/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p></blockquote><h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol><li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li><li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li><li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li><li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li></ol><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul><li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p></li><li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p></li><li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p></li><li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p></li><li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p></li></ul><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><ul><li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li></ul><h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote><p>前往下载PicG（<a href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p></blockquote><p>设定仓库名：按照用户名/图床仓库名 的格式填写</p><p>设定分支名：main</p><p>设定 Token：粘贴之前生成的Token</p><p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p><p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a href="https://chuibi.cn/">吹逼图床</a></p><ul><li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p></li><li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p></li></ul><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><ul><li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li></ul><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><ul><li>  回到picGo进行配置</li></ul><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p><p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p><blockquote><p>值得注意的是,理论上讲GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m[也就是仓库大小]仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p></blockquote><p>此外 PicGo还有相册功能，可以对已上传的图片进行删除，修改链接等快捷操作,PicGo还可以生成不同格式的链接、支持批量上传、快捷键上传、自定义链接格式、上传前重命名等，更多功能自己去探索吧！</p><p>完成之后就可以畅快书写，上传直接快捷键完成，复制粘贴，再也不用手动去拖动图片上传了，更过功能尽情去体验吧！</p>]]></content>
-      
-      
+      <tags>
+        <tag>科学上网</tag>
+        <tag>vps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用GitHub+jsdelivr搭建一个图床</title>
+    <url>/2022/01/16/%E5%88%A9%E7%94%A8GitHub-jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p>
+</blockquote>
+<h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol>
+<li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
+<li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
+<li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
+<li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul>
+<li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
+</ul>
+<h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote>
+<p>前往下载PicG（<a href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p>
+</blockquote>
+<p>设定仓库名：按照用户名/图床仓库名 的格式填写</p>
+<p>设定分支名：main</p>
+<p>设定 Token：粘贴之前生成的Token</p>
+<p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
+<p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a href="https://chuibi.cn/">吹逼图床</a></p>
+<ul>
+<li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  回到picGo进行配置</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p>
+<blockquote>
+<p>值得注意的是,理论上讲GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m[也就是仓库大小]仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</blockquote>
+<p>此外 PicGo还有相册功能，可以对已上传的图片进行删除，修改链接等快捷操作,PicGo还可以生成不同格式的链接、支持批量上传、快捷键上传、自定义链接格式、上传前重命名等，更多功能自己去探索吧！</p>
+<p>完成之后就可以畅快书写，上传直接快捷键完成，复制粘贴，再也不用手动去拖动图片上传了，更过功能尽情去体验吧！</p>
+]]></content>
       <categories>
-          
-          <category> 网站 </category>
-          
+        <category>网站</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> github </tag>
-            
-            <tag> jsdelivr </tag>
-            
-            <tag> 图床 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>利用heroku + cloudflare搭建v2ray免费科学上网</title>
-      <link href="/2022/01/16/%E5%88%A9%E7%94%A8heroku-cloudflare%E6%90%AD%E5%BB%BAv2ray%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-      <url>/2022/01/16/%E5%88%A9%E7%94%A8heroku-cloudflare%E6%90%AD%E5%BB%BAv2ray%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol><li><p> Heroku免费套餐每月只有550小时的免费时间，适合在非常时期当做备胎使用</p></li><li><p> Heroku对流量检测有些严格，请避免大流量消耗</p></li><li><p> 引用项目原作者的话：Heroku提供给我们免费的服务，我们不应该滥用它</p></li><li><p> Heroku免费容器未使用超过一段时间（三十分钟左右）就会休眠</p></li></ol><h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol><li> 一个非国内邮箱地址</li><li> Heroku与Cloudflare国内访问速度并不理想，可使用非国内网络环境</li><li> 翻译工具，也可以使用Google Chrome浏览器</li><li> V2Ray软件；<a href="https://github.com/2dust/v2rayN/releases">点击下载</a>  </li></ol><h2 id="一、服务端部署"><a href="#一、服务端部署" class="headerlink" title="一、服务端部署"></a>一、服务端部署</h2><h3 id="1-1-注册Heroku账户"><a href="#1-1-注册Heroku账户" class="headerlink" title="1.1 注册Heroku账户"></a>1.1 注册Heroku账户</h3><p>很简单，根据官网的提示操作就行:<a href="https://signup.heroku.com/">点击注册</a></p><p>注意：请使用外网IP注册，且请准备好翻译工具，并在收到邮件后激活账户；注册时不能使用QQ邮箱</p><h3 id="1-2-在Heroku部署v2ray"><a href="#1-2-在Heroku部署v2ray" class="headerlink" title="1.2 在Heroku部署v2ray"></a>1.2 在Heroku部署v2ray</h3><p>点击下方按钮部署应用<a href="https://dashboard.heroku.com/new?template=https://github.com/AkashiCoin/heroku-v2ray"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p><p>ps: （2022.01.16）最近大佬们的仓库都被heroku给ban了，所以想要使用可以自建一个仓库，然后import大佬Fbclswl0827的heroku-v2ray项目自行部署</p><p>ps: 上面部署方式是我自己的仓库</p><p>App name随便填写，可用就行；Choose a region就是你的服务器地区；UUID可自行修改（建议修改，使用默认UUID会使节点暴露在危险下）；然后点击<code>Deploy app</code>系统会自动部署</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161405003.png" alt="1.png"></p><p>稍微等待一会儿，几秒的样子，直到全部打勾变绿</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161457921.png" alt="2.png"></p><h2 id="二、客户端使用"><a href="#二、客户端使用" class="headerlink" title="二、客户端使用"></a>二、客户端使用</h2><h3 id="2-1-相关配置信息"><a href="#2-1-相关配置信息" class="headerlink" title="2.1 相关配置信息"></a>2.1 相关配置信息</h3><p>点击Manage App进入你的项目；或者在<a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a>中找的到你的项目并进入</p><p>注意：你会看到一个项目，点击上方的<code>Settings</code>进入，查看你的V2Ray具体配置，如图</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161458347.png"></p><p>点击<code>Reveal Config Vars</code>显示V2RrayN相关配置信息，如图</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161500120.png"></p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161501582.png"></p><h3 id="2-2-V2rayN配置"><a href="#2-2-V2rayN配置" class="headerlink" title="2.2 V2rayN配置"></a>2.2 V2rayN配置</h3><p>开始配置V2Ray，如果你记好了以上两个（那串字母UUID和二级域名xxxx.herokuapp.com）</p><p>ps: 二级域名不用加<code>https://</code>，直接填域名就好</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161519886.png"></p><p>最基础的配置完成了，可以发现节点的速度慢的令人发指，接下来我们利用cloudflare + 自选ip进行加速</p><h2 id="三、Cloudflare-Workers反代加速"><a href="#三、Cloudflare-Workers反代加速" class="headerlink" title="三、Cloudflare Workers反代加速"></a>三、Cloudflare Workers反代加速</h2><p>对速度有要求的人群<s>（强迫症患者）</s>可以看一下；主要是使用Cloudflare Workers加速，虽然免费套餐有调用限制，但是一般个人使用不可能用完</p><h3 id="3-1-创建Cloudflare-Workers"><a href="#3-1-创建Cloudflare-Workers" class="headerlink" title="3.1 创建Cloudflare Workers"></a>3.1 创建Cloudflare Workers</h3><p>在<a href="https://dash.cloudflare.com/">Cloudflare Workers</a>中创建一个Workers</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161538514.png"><br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161542604.png"></p><p>点击<code>快速编辑</code>进入项目编辑<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161545214.png"><br>2.  将原有的示例代码全部删除，复制如下代码，并将第四行的xxx.herokuapp.com 替换为你的V2Ray的地址    ps: 不需要<code>https://</code></p><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line"><span class="string">&quot;fetch&quot;</span>,event =&gt; &#123;</span><br><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> URL(event.<span class="built_in">request</span>.url);</span><br><span class="line">url.hostname=<span class="string">&quot;xxxx.herokuapp.com&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">request</span>=<span class="keyword">new</span> <span class="built_in">Request</span>(url,event.<span class="built_in">request</span>);</span><br><span class="line">event. respondWith(</span><br><span class="line">fetch(<span class="built_in">request</span>)</span><br><span class="line">)</span><br><span class="line">&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>点击右侧的<code>发送</code>按钮，看最后一行是否出现了<code>Bad Request</code>，出现则代表成功</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161554105.png"></p><p>成功后，点击<code>保存并部署</code>，并记下你的Workers二级域名</p><h3 id="3-2修改V2rayN中的配置"><a href="#3-2修改V2rayN中的配置" class="headerlink" title="3.2修改V2rayN中的配置"></a>3.2修改V2rayN中的配置</h3><p>把V2RayN中原来的域名改为现在的Workers域名就行了，其实利用Cloudflare Workers进行反代以后速度已经可以了，但是优选ip以后速度会更加快<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161557052.png"></p><p><strong>对速度有更高追求以及不怕折腾的人可以接着往下看</strong></p><h2 id="四、Cloudflare自选IP"><a href="#四、Cloudflare自选IP" class="headerlink" title="四、Cloudflare自选IP"></a>四、Cloudflare自选IP</h2><p>点击下载<a href="https://github.com/badafans/better-cloudflare-ip/releases/lastest/download/batch.zip">IP自选程序</a>，解压，在Windows系统下运行</p><p>其他的<code>使用说明.txt</code>文件中都有说，在此就不过多赘述</p><p>最后，配置V2Ray：</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161617481.png"></p><h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" title="注意事项"></a>注意事项</h3><p>由于各地的网络情况每天都不同，所以每天（甚至是每半天）的最优节点都不尽相同；但对于一个应急用的已经足够了</p><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><a href="#%E6%95%88%E6%9E%9C%E5%9B%BE" title="效果图"></a>效果图</h2><p>折腾完一圈后的测速：</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161619689.png"><em>可见heroku是利用的amazon服务器，而这个速度对于免费的来说已经相当快了</em></p><p>实际使用效果图：</p><p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161623744.png"><em>从YouTube的视频测试来看还是不错的</em></p><p>比某些大部分的机场免费套餐都好，甚至直逼少数机场的初级付费套餐；对于我这样的穷学生来讲已经够用的。</p>]]></content>
-      
-      
+      <tags>
+        <tag>github</tag>
+        <tag>jsdelivr</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用heroku + cloudflare搭建v2ray免费科学上网</title>
+    <url>/2022/01/16/%E5%88%A9%E7%94%A8heroku-cloudflare%E6%90%AD%E5%BB%BAv2ray%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p> Heroku免费套餐每月只有550小时的免费时间，适合在非常时期当做备胎使用</p>
+</li>
+<li><p> Heroku对流量检测有些严格，请避免大流量消耗</p>
+</li>
+<li><p> 引用项目原作者的话：Heroku提供给我们免费的服务，我们不应该滥用它</p>
+</li>
+<li><p> Heroku免费容器未使用超过一段时间（三十分钟左右）就会休眠</p>
+</li>
+</ol>
+<h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol>
+<li> 一个非国内邮箱地址</li>
+<li> Heroku与Cloudflare国内访问速度并不理想，可使用非国内网络环境</li>
+<li> 翻译工具，也可以使用Google Chrome浏览器</li>
+<li> V2Ray软件；<a href="https://github.com/2dust/v2rayN/releases">点击下载</a>  </li>
+</ol>
+<h2 id="一、服务端部署"><a href="#一、服务端部署" class="headerlink" title="一、服务端部署"></a>一、服务端部署</h2><h3 id="1-1-注册Heroku账户"><a href="#1-1-注册Heroku账户" class="headerlink" title="1.1 注册Heroku账户"></a>1.1 注册Heroku账户</h3><p>很简单，根据官网的提示操作就行:<a href="https://signup.heroku.com/">点击注册</a></p>
+<p>注意：请使用外网IP注册，且请准备好翻译工具，并在收到邮件后激活账户；注册时不能使用QQ邮箱</p>
+<h3 id="1-2-在Heroku部署v2ray"><a href="#1-2-在Heroku部署v2ray" class="headerlink" title="1.2 在Heroku部署v2ray"></a>1.2 在Heroku部署v2ray</h3><p>点击下方按钮部署应用<a href="https://dashboard.heroku.com/new?template=https://github.com/AkashiCoin/heroku-v2ray"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p>
+<p>ps: （2022.01.16）最近大佬们的仓库都被heroku给ban了，所以想要使用可以自建一个仓库，然后import大佬Fbclswl0827的heroku-v2ray项目自行部署</p>
+<p>ps: 上面部署方式是我自己的仓库</p>
+<p>App name随便填写，可用就行；Choose a region就是你的服务器地区；UUID可自行修改（建议修改，使用默认UUID会使节点暴露在危险下）；然后点击<code>Deploy app</code>系统会自动部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161405003.png" alt="1.png"></p>
+<p>稍微等待一会儿，几秒的样子，直到全部打勾变绿</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161457921.png" alt="2.png"></p>
+<h2 id="二、客户端使用"><a href="#二、客户端使用" class="headerlink" title="二、客户端使用"></a>二、客户端使用</h2><h3 id="2-1-相关配置信息"><a href="#2-1-相关配置信息" class="headerlink" title="2.1 相关配置信息"></a>2.1 相关配置信息</h3><p>点击Manage App进入你的项目；或者在<a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a>中找的到你的项目并进入</p>
+<p>注意：你会看到一个项目，点击上方的<code>Settings</code>进入，查看你的V2Ray具体配置，如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161458347.png"></p>
+<p>点击<code>Reveal Config Vars</code>显示V2RrayN相关配置信息，如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161500120.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161501582.png"></p>
+<h3 id="2-2-V2rayN配置"><a href="#2-2-V2rayN配置" class="headerlink" title="2.2 V2rayN配置"></a>2.2 V2rayN配置</h3><p>开始配置V2Ray，如果你记好了以上两个（那串字母UUID和二级域名xxxx.herokuapp.com）</p>
+<p>ps: 二级域名不用加<code>https://</code>，直接填域名就好</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161519886.png"></p>
+<p>最基础的配置完成了，可以发现节点的速度慢的令人发指，接下来我们利用cloudflare + 自选ip进行加速</p>
+<h2 id="三、Cloudflare-Workers反代加速"><a href="#三、Cloudflare-Workers反代加速" class="headerlink" title="三、Cloudflare Workers反代加速"></a>三、Cloudflare Workers反代加速</h2><p>对速度有要求的人群<s>（强迫症患者）</s>可以看一下；主要是使用Cloudflare Workers加速，虽然免费套餐有调用限制，但是一般个人使用不可能用完</p>
+<h3 id="3-1-创建Cloudflare-Workers"><a href="#3-1-创建Cloudflare-Workers" class="headerlink" title="3.1 创建Cloudflare Workers"></a>3.1 创建Cloudflare Workers</h3><p>在<a href="https://dash.cloudflare.com/">Cloudflare Workers</a>中创建一个Workers</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161538514.png"><br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161542604.png"></p>
+<p>点击<code>快速编辑</code>进入项目编辑<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161545214.png"><br>2.  将原有的示例代码全部删除，复制如下代码，并将第四行的xxx.herokuapp.com 替换为你的V2Ray的地址    ps: 不需要<code>https://</code></p>
+<figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line">	<span class="string">&quot;fetch&quot;</span>,event =&gt; &#123;</span><br><span class="line">		<span class="keyword">let</span> url=<span class="keyword">new</span> URL(event.<span class="built_in">request</span>.url);</span><br><span class="line">		url.hostname=<span class="string">&quot;xxxx.herokuapp.com&quot;</span>;</span><br><span class="line">		<span class="keyword">let</span> <span class="built_in">request</span>=<span class="keyword">new</span> <span class="built_in">Request</span>(url,event.<span class="built_in">request</span>);</span><br><span class="line">		event. respondWith(</span><br><span class="line">			fetch(<span class="built_in">request</span>)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>点击右侧的<code>发送</code>按钮，看最后一行是否出现了<code>Bad Request</code>，出现则代表成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161554105.png"></p>
+<p>成功后，点击<code>保存并部署</code>，并记下你的Workers二级域名</p>
+<h3 id="3-2修改V2rayN中的配置"><a href="#3-2修改V2rayN中的配置" class="headerlink" title="3.2修改V2rayN中的配置"></a>3.2修改V2rayN中的配置</h3><p>把V2RayN中原来的域名改为现在的Workers域名就行了，其实利用Cloudflare Workers进行反代以后速度已经可以了，但是优选ip以后速度会更加快<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161557052.png"></p>
+<p><strong>对速度有更高追求以及不怕折腾的人可以接着往下看</strong></p>
+<h2 id="四、Cloudflare自选IP"><a href="#四、Cloudflare自选IP" class="headerlink" title="四、Cloudflare自选IP"></a>四、Cloudflare自选IP</h2><p>点击下载<a href="https://github.com/badafans/better-cloudflare-ip/releases/lastest/download/batch.zip">IP自选程序</a>，解压，在Windows系统下运行</p>
+<p>其他的<code>使用说明.txt</code>文件中都有说，在此就不过多赘述</p>
+<p>最后，配置V2Ray：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161617481.png"></p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" title="注意事项"></a>注意事项</h3><p>由于各地的网络情况每天都不同，所以每天（甚至是每半天）的最优节点都不尽相同；但对于一个应急用的已经足够了</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><a href="#%E6%95%88%E6%9E%9C%E5%9B%BE" title="效果图"></a>效果图</h2><p>折腾完一圈后的测速：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161619689.png"><em>可见heroku是利用的amazon服务器，而这个速度对于免费的来说已经相当快了</em></p>
+<p>实际使用效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161623744.png"><em>从YouTube的视频测试来看还是不错的</em></p>
+<p>比某些大部分的机场免费套餐都好，甚至直逼少数机场的初级付费套餐；对于我这样的穷学生来讲已经够用的。</p>
+]]></content>
       <categories>
-          
-          <category> 科学上网 </category>
-          
+        <category>科学上网</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 科学上网 </tag>
-            
-            <tag> v2ray </tag>
-            
-            <tag> heroku </tag>
-            
-            <tag> cloudflare </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>417小剧场</title>
-      <link href="/2021/08/17/417%E5%B0%8F%E5%89%A7%E5%9C%BA/"/>
-      <url>/2021/08/17/417%E5%B0%8F%E5%89%A7%E5%9C%BA/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="417小剧场"><a href="#417小剧场" class="headerlink" title="417小剧场"></a>417小剧场</h2><hr><div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/417小剧场.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      
-      
+      <tags>
+        <tag>科学上网</tag>
+        <tag>v2ray</tag>
+        <tag>heroku</tag>
+        <tag>cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>417小剧场</title>
+    <url>/2021/08/17/417%E5%B0%8F%E5%89%A7%E5%9C%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="417小剧场"><a href="#417小剧场" class="headerlink" title="417小剧场"></a>417小剧场</h2><hr>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/417小剧场.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
-          
-          <category> 视频 </category>
-          
+        <category>视频</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Arcaea练习记录</title>
-      <link href="/2021/08/17/Arcaea%E7%BB%83%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-      <url>/2021/08/17/Arcaea%E7%BB%83%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr><h2 id="2021-8-14"><a href="#2021-8-14" class="headerlink" title="2021-8-14"></a>2021-8-14</h2><h3 id="Grievous-Lady-病女-–-AA"><a href="#Grievous-Lady-病女-–-AA" class="headerlink" title="Grievous Lady(病女)  – AA"></a>Grievous Lady(病女)  – AA</h3><div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/%E7%97%85%E5%A5%B3AA_20210817_0249.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script><hr><h2 id="2021-8-16"><a href="#2021-8-16" class="headerlink" title="2021-8-16"></a>2021-8-16</h2><h3 id="Fracture-Ray-骨折光-–-AA"><a href="#Fracture-Ray-骨折光-–-AA" class="headerlink" title="Fracture Ray(骨折光)  – AA"></a>Fracture Ray(骨折光)  – AA</h3><div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/骨折光AA_20210814_2104.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script><hr>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>Arcaea练习记录</title>
+    <url>/2021/08/17/Arcaea%E7%BB%83%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+<h2 id="2021-8-14"><a href="#2021-8-14" class="headerlink" title="2021-8-14"></a>2021-8-14</h2><h3 id="Grievous-Lady-病女-–-AA"><a href="#Grievous-Lady-病女-–-AA" class="headerlink" title="Grievous Lady(病女)  – AA"></a>Grievous Lady(病女)  – AA</h3><div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/%E7%97%85%E5%A5%B3AA_20210817_0249.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<hr>
+<h2 id="2021-8-16"><a href="#2021-8-16" class="headerlink" title="2021-8-16"></a>2021-8-16</h2><h3 id="Fracture-Ray-骨折光-–-AA"><a href="#Fracture-Ray-骨折光-–-AA" class="headerlink" title="Fracture Ray(骨折光)  – AA"></a>Fracture Ray(骨折光)  – AA</h3><div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/骨折光AA_20210814_2104.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<hr>
+]]></content>
       <categories>
-          
-          <category> 视频 </category>
-          
+        <category>视频</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>乙女解剖 - 希儿</title>
-      <link href="/2020/12/27/home/"/>
-      <url>/2020/12/27/home/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr><div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>乙女解剖 - 希儿</title>
+    <url>/2020/12/27/home/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
+<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
       <categories>
-          
-          <category> 视频 </category>
-          
+        <category>视频</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>魔法禁书目录 - 炮姐</title>
-      <link href="/2020/12/27/test3/"/>
-      <url>/2020/12/27/test3/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr><div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>魔法禁书目录 - 炮姐</title>
+    <url>/2020/12/27/test3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr>
+<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
-          
-          <category> 视频 </category>
-          
+        <category>视频</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</title>
-      <link href="/2020/12/27/fight-the-virus/"/>
-      <url>/2020/12/27/fight-the-virus/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a><h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr><div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</title>
+    <url>/2020/12/27/fight-the-virus/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+<h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr>
+<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
-          
-          <category> 视频 </category>
-          
+        <category>视频</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo主题美化-鼠标点击特效</title>
-      <link href="/2020/12/27/Hexo-click/"/>
-      <url>/2020/12/27/Hexo-click/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-鼠标点击特效</strong></p><p>从各个站点里收集了以下四个比较常用的鼠标点击特效：</p><ul><li>礼花特效</li></ul><p><img src="https://pan.yropo.top/img/20201229/cursor-fireworks.gif" alt="fireworks">  </p><p>下载：<a href="https://pan.yropo.top/source/js/firework.js">礼花特效</a></p><ul><li>爆炸特效</li></ul><p><img src="https://pan.yropo.top/img/20201229/cursor-explosion.gif" alt="explosin">  </p><p>下载：<a href="https://pan.yropo.top/source/js/explosion.min.js">爆炸特效</a></p><ul><li>浮出爱心</li></ul><p><img src="https://pan.yropo.top/img/20201229/cursor-love.gif" alt="love">  </p><p>下载：<a href="https://pan.yropo.top/source/js/love.min.js">浮出爱心</a></p><ul><li>浮出文字</li></ul><p><img src="https://pan.yropo.top/img/20201229/cursor-text.gif" alt="cursor">  </p><p>下载：<a href="https://pan.yropo.top/source/js/text.js">浮出文字</a></p><p>将脚本文件放置于 <code>themes/next/source/js/cursor</code> 目录下（如果没有相应的目录，需要自行创建，可以根据自己习惯命名）。</p><p>在主题自定义布局文件 <code>themes/next/layout/_custom/custom.swig</code> （如果没有 custom.swig 文件，需自行创建）中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.cursor_effect == <span class="string">&quot;fireworks&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/fireworks.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;explosion&quot;</span> %&#125;</span><br><span class="line">  &lt;canvas <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;fireworks&quot;</span> style=<span class="string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;&lt;/canvas&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/explosion.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;love&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/love.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;text&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/text.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text </span></span><br><span class="line">  <span class="attr">cursor_effect:</span> <span class="string">love</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>Hexo主题美化-鼠标点击特效</title>
+    <url>/2020/12/27/Hexo-click/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-鼠标点击特效</strong></p>
+<p>从各个站点里收集了以下四个比较常用的鼠标点击特效：</p>
+<ul>
+<li>礼花特效</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-fireworks.gif" alt="fireworks">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/firework.js">礼花特效</a></p>
+<ul>
+<li>爆炸特效</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-explosion.gif" alt="explosin">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/explosion.min.js">爆炸特效</a></p>
+<ul>
+<li>浮出爱心</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-love.gif" alt="love">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/love.min.js">浮出爱心</a></p>
+<ul>
+<li>浮出文字</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-text.gif" alt="cursor">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/text.js">浮出文字</a></p>
+<p>将脚本文件放置于 <code>themes/next/source/js/cursor</code> 目录下（如果没有相应的目录，需要自行创建，可以根据自己习惯命名）。</p>
+<p>在主题自定义布局文件 <code>themes/next/layout/_custom/custom.swig</code> （如果没有 custom.swig 文件，需自行创建）中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.cursor_effect == <span class="string">&quot;fireworks&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/fireworks.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;explosion&quot;</span> %&#125;</span><br><span class="line">  &lt;canvas <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;fireworks&quot;</span> style=<span class="string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;&lt;/canvas&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/explosion.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;love&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/love.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;text&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/text.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text </span></span><br><span class="line">  <span class="attr">cursor_effect:</span> <span class="string">love</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo主题美化-评论打字特性</title>
-      <link href="/2020/12/27/Hexo-typing-effect/"/>
-      <url>/2020/12/27/Hexo-typing-effect/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p><p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p><p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p><p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p><p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure><p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo主题美化-评论打字特性</title>
+    <url>/2020/12/27/Hexo-typing-effect/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p>
+<p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p>
+<p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p>
+<p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo主题美化-网站运行时间</title>
-      <link href="/2020/12/27/Hexo-webtime/"/>
-      <url>/2020/12/27/Hexo-webtime/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p><p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure><p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo主题美化-网站运行时间</title>
+    <url>/2020/12/27/Hexo-webtime/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>博客搭建起始</title>
-      <link href="/2020/12/27/Hexo-start/"/>
-      <url>/2020/12/27/Hexo-start/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Star’s-Tech-Blog"><a href="#Star’s-Tech-Blog" class="headerlink" title="Star’s Tech Blog"></a>Star’s Tech Blog</h2><p>框架驱动：<a href="https://hexo.io/zh-cn/">Hexo</a>  </p><p>博客主题：<a href="https://github.com/theme-next/hexo-theme-next">NexT ^7.x</a></p><h2 id="博客搭建与配置"><a href="#博客搭建与配置" class="headerlink" title="博客搭建与配置"></a>博客搭建与配置</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul><li><p><a href="http://nodejs.org/">Node.js</a></p></li><li><p><a href="http://git-scm.com/">Git</a></p></li></ul><h3 id="Hexo-搭建"><a href="#Hexo-搭建" class="headerlink" title="Hexo 搭建"></a>Hexo 搭建</h3><p>安装 Hexo，打开 Git Bash 命令窗口，输入命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>安装好 Hexo 后，在任意目录新建一个空文件夹，名字可以为 blogs，然后进入这个文件夹，在命令行输入命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init </span><br></pre></td></tr></table></figure><p>执行完成后（如果命令窗口出现橙色的 WARN 不用管），生成文件结构：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules       //依赖安装目录</span><br><span class="line">├── scaffolds          //模板文件夹，新建的文章将会从此目录下的文件中继承格式</span><br><span class="line">|   ├── draft.md         //草稿模板</span><br><span class="line">|   ├── page.md          //页面模板</span><br><span class="line">|   └── post.md          //文章模板</span><br><span class="line">├── <span class="built_in">source</span>             //资源文件夹，用于放置图片、数据、文章等资源</span><br><span class="line">|   └── _posts           //文章目录</span><br><span class="line">├── themes             //主题文件夹</span><br><span class="line">|   └── landscape        //默认主题</span><br><span class="line">├── .gitignore         //指定不纳入git版本控制的文件</span><br><span class="line">├── _config.yml        //站点配置文件</span><br><span class="line">├── db.json            </span><br><span class="line">├── package.json</span><br><span class="line">└── package-lock.json</span><br></pre></td></tr></table></figure><p>下载依赖包，输入命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>依赖包下载完成后，输入如下命令启动 hexo 的内置 Web 服务器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g // 打包文件</span><br><span class="line"></span><br><span class="line">hexo s // 启动服务器</span><br></pre></td></tr></table></figure><p>然后可以在在浏览器中通过地址 <a href="http://localhost:4000/">http://localhost:4000/</a> 访问博客了。</p><h3 id="更换-NexT-主题"><a href="#更换-NexT-主题" class="headerlink" title="更换 NexT 主题"></a>更换 NexT 主题</h3><p>Hexo 更换主题的方式很简单，只需要将主题文件拷贝至根目录下的 themes 目录中， 然后修改根目录下 <code>_config.yml</code> 文件中的 theme 字段，便可完成更换。</p><p>在博客项目的根目录下，输入命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure><p>打开根目录下 <code>_config.yml</code> 文件,将 theme 字段的值修改为 next。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure><p>这个时候需要重启服务器 <code>hexo g &amp;&amp; hexo s</code> 并刷新才能使主题生效。</p><h3 id="重要定义"><a href="#重要定义" class="headerlink" title="重要定义"></a>重要定义</h3><p>在项目文件中存在两个 <code>_config.yml</code> 文件，为了方便区分。</p><ul><li><p>项目根目录下的 <code>_config.yml</code> 文件叫作<code>站点配置文件</code>。</p></li><li><p>主题文件夹根目录下的 <code>themes/next/_config.yml</code> 文件叫作<code>主题配置文件</code>。</p></li></ul><h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><p><strong>GitHub 配置</strong></p><ul><li><p>创建 <a href="https://github.com/">GitHub</a> 账号</p></li><li><p>创建仓库，仓库名必须是：&lt;GitHub 账号名称&gt;.github.io，这是GitHub pages 的特殊命名规范</p></li></ul><p><strong>修改站点配置文件 _config.yml</strong></p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;GitHub</span> <span class="string">账号名称&gt;/&lt;GitHub</span> <span class="string">账号名称&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p><strong>注意</strong>：<code>GitHub pages</code> 仅在 <code>master</code> 分支下实现。</p><p><strong>部署</strong>  </p><ul><li>在项目根目录下，安装 Git 部署插件：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><ul><li>部署到 Github Pages</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>部署完成后，在浏览器访问网址：https://&lt;Github账号名称&gt;.github.io 即可查看博客。</p><p>详细过程可以参考：<a href="https://blog.csdn.net/weixin_39510813/article/details/80216552">借助 GitHub pages 搭建静态个人网站并绑定域名</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Sakuraの其他网站</title>
-      <link href="/2020/12/25/index/"/>
-      <url>/2020/12/25/index/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p><h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p><h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p><p>Let’s START!</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
-    
-    
-    <entry>
-      <title>404</title>
-      <link href="/404/index.html"/>
-      <url>/404/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="仅作为个人学术交流使用"><a href="#仅作为个人学术交流使用" class="headerlink" title="仅作为个人学术交流使用"></a>仅作为个人学术交流使用</h2><hr><h2 id="本博客由Hexo提供主要框架"><a href="#本博客由Hexo提供主要框架" class="headerlink" title="本博客由Hexo提供主要框架"></a>本博客由Hexo提供主要框架</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><hr><h2 id="由hexo-butterfly提供博客模板"><a href="#由hexo-butterfly提供博客模板" class="headerlink" title="由hexo-butterfly提供博客模板"></a>由hexo-butterfly提供博客模板</h2><hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日程</title>
-      <link href="/schedule/index.html"/>
-      <url>/schedule/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-  
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建起始</title>
+    <url>/2020/12/27/Hexo-start/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Star’s-Tech-Blog"><a href="#Star’s-Tech-Blog" class="headerlink" title="Star’s Tech Blog"></a>Star’s Tech Blog</h2><p>框架驱动：<a href="https://hexo.io/zh-cn/">Hexo</a>  </p>
+<p>博客主题：<a href="https://github.com/theme-next/hexo-theme-next">NexT ^7.x</a></p>
+<h2 id="博客搭建与配置"><a href="#博客搭建与配置" class="headerlink" title="博客搭建与配置"></a>博客搭建与配置</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
+<li><p><a href="http://nodejs.org/">Node.js</a></p>
+</li>
+<li><p><a href="http://git-scm.com/">Git</a></p>
+</li>
+</ul>
+<h3 id="Hexo-搭建"><a href="#Hexo-搭建" class="headerlink" title="Hexo 搭建"></a>Hexo 搭建</h3><p>安装 Hexo，打开 Git Bash 命令窗口，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装好 Hexo 后，在任意目录新建一个空文件夹，名字可以为 blogs，然后进入这个文件夹，在命令行输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init </span><br></pre></td></tr></table></figure>
+<p>执行完成后（如果命令窗口出现橙色的 WARN 不用管），生成文件结构：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├── node_modules       //依赖安装目录</span><br><span class="line">├── scaffolds          //模板文件夹，新建的文章将会从此目录下的文件中继承格式</span><br><span class="line">|   ├── draft.md         //草稿模板</span><br><span class="line">|   ├── page.md          //页面模板</span><br><span class="line">|   └── post.md          //文章模板</span><br><span class="line">├── <span class="built_in">source</span>             //资源文件夹，用于放置图片、数据、文章等资源</span><br><span class="line">|   └── _posts           //文章目录</span><br><span class="line">├── themes             //主题文件夹</span><br><span class="line">|   └── landscape        //默认主题</span><br><span class="line">├── .gitignore         //指定不纳入git版本控制的文件</span><br><span class="line">├── _config.yml        //站点配置文件</span><br><span class="line">├── db.json            </span><br><span class="line">├── package.json</span><br><span class="line">└── package-lock.json</span><br></pre></td></tr></table></figure>
+<p>下载依赖包，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>依赖包下载完成后，输入如下命令启动 hexo 的内置 Web 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g // 打包文件</span><br><span class="line"></span><br><span class="line">hexo s // 启动服务器</span><br></pre></td></tr></table></figure>
+<p>然后可以在在浏览器中通过地址 <a href="http://localhost:4000/">http://localhost:4000/</a> 访问博客了。</p>
+<h3 id="更换-NexT-主题"><a href="#更换-NexT-主题" class="headerlink" title="更换 NexT 主题"></a>更换 NexT 主题</h3><p>Hexo 更换主题的方式很简单，只需要将主题文件拷贝至根目录下的 themes 目录中， 然后修改根目录下 <code>_config.yml</code> 文件中的 theme 字段，便可完成更换。</p>
+<p>在博客项目的根目录下，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
+<p>打开根目录下 <code>_config.yml</code> 文件,将 theme 字段的值修改为 next。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+<p>这个时候需要重启服务器 <code>hexo g &amp;&amp; hexo s</code> 并刷新才能使主题生效。</p>
+<h3 id="重要定义"><a href="#重要定义" class="headerlink" title="重要定义"></a>重要定义</h3><p>在项目文件中存在两个 <code>_config.yml</code> 文件，为了方便区分。</p>
+<ul>
+<li><p>项目根目录下的 <code>_config.yml</code> 文件叫作<code>站点配置文件</code>。</p>
+</li>
+<li><p>主题文件夹根目录下的 <code>themes/next/_config.yml</code> 文件叫作<code>主题配置文件</code>。</p>
+</li>
+</ul>
+<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><p><strong>GitHub 配置</strong></p>
+<ul>
+<li><p>创建 <a href="https://github.com/">GitHub</a> 账号</p>
+</li>
+<li><p>创建仓库，仓库名必须是：&lt;GitHub 账号名称&gt;.github.io，这是GitHub pages 的特殊命名规范</p>
+</li>
+</ul>
+<p><strong>修改站点配置文件 _config.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;GitHub</span> <span class="string">账号名称&gt;/&lt;GitHub</span> <span class="string">账号名称&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<code>GitHub pages</code> 仅在 <code>master</code> 分支下实现。</p>
+<p><strong>部署</strong>  </p>
+<ul>
+<li>在项目根目录下，安装 Git 部署插件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>部署到 Github Pages</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>部署完成后，在浏览器访问网址：https://&lt;Github账号名称&gt;.github.io 即可查看博客。</p>
+<p>详细过程可以参考：<a href="https://blog.csdn.net/weixin_39510813/article/details/80216552">借助 GitHub pages 搭建静态个人网站并绑定域名</a></p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>404</title>
+    <url>/404/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
+    <title>关于</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="仅作为个人学术交流使用"><a href="#仅作为个人学术交流使用" class="headerlink" title="仅作为个人学术交流使用"></a>仅作为个人学术交流使用</h2><hr>
+<h2 id="本博客由Hexo提供主要框架"><a href="#本博客由Hexo提供主要框架" class="headerlink" title="本博客由Hexo提供主要框架"></a>本博客由Hexo提供主要框架</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="由hexo-butterfly提供博客模板"><a href="#由hexo-butterfly提供博客模板" class="headerlink" title="由hexo-butterfly提供博客模板"></a>由hexo-butterfly提供博客模板</h2><hr>
+]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
+    <title>link</title>
+    <url>/link/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+]]></content>
+  </entry>
+  <entry>
+    <title>日程</title>
+    <url>/schedule/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
+    <title>标签</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
 </search>
