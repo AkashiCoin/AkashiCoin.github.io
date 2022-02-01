@@ -66,7 +66,8 @@
 <h3 id="六、部署脚本"><a href="#六、部署脚本" class="headerlink" title="六、部署脚本"></a>六、部署脚本</h3><p><strong>终于可以部署脚本来抢服务器了，请先获取 telegram 账号 id，并且关注通知机器人 @oracle_message_bot<br>TG id 请通过 @userinfobot 机器人获取<br>在 root 目录下新建一个 terraform.sh</strong></p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> /root  </span><br><span class="line"><span class="keyword">vi</span> terraform.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
 <p><strong>写入以下内容</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">path=<span class="string">&#x27;/opt/terraform-learning/&#x27;</span></span><br><span class="line">FIND_FILE=<span class="string">&quot;/root/terraform.log&quot;</span> <span class="comment">#日志文件位置</span></span><br><span class="line">FIND_STR=<span class="string">&quot;Apply complete!&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$path</span> &amp;&amp;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;yes&#x27;</span> | terraform apply -lock=<span class="literal">false</span></span><br><span class="line">    sleep 1s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">if</span> [ grep -c <span class="string">&quot;<span class="variable">$FIND_STR</span>&quot;</span> <span class="variable">$FIND_FILE</span> -ne <span class="string">&#x27;20&#x27;</span> ];<span class="keyword">then</span></span><br><span class="line">    curl --location --request POST <span class="string">&#x27;https://api.telegram.org/bot2124631392:AAHtVpEm7KRWo6ulYNG_Zbz98irpmTSIf8o/sendMessage&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;text=服务器创建成功！&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;chat_id=你的tg id&#x27;</span> \</span><br><span class="line">--form <span class="string">&#x27;parse_mode=markdown&#x27;</span></span><br><span class="line">pkill terraform</span><br><span class="line">    <span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">path=<span class="string">&#x27;/opt/terraform-learning/&#x27;</span></span><br><span class="line">FIND_FILE=<span class="string">&quot;/root/terraform.log&quot;</span> <span class="comment">#日志文件位置</span></span><br><span class="line">FIND_STR=<span class="string">&quot;Apply complete!&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$path</span> &amp;&amp;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;yes&#x27;</span> | terraform apply -lock=<span class="literal">false</span></span><br><span class="line">    sleep 1s</span><br><span class="line">    <span class="keyword">if</span> [ `grep -c <span class="string">&quot;<span class="variable">$FIND_STR</span>&quot;</span> <span class="variable">$FIND_FILE</span>` -ne <span class="string">&#x27;0&#x27;</span> ];<span class="keyword">then</span></span><br><span class="line">        <span class="comment"># tg通知并停止</span></span><br><span class="line">        curl --location --request POST <span class="string">&#x27;https://api.telegram.org/bot2041773532:AAHv_glHg4eHFhyQBD7kZp1qhheYP4nmeI8/sendMessage&#x27;</span> \</span><br><span class="line">        --form <span class="string">&#x27;text=服务器创建成功！&#x27;</span> \</span><br><span class="line">        --form <span class="string">&#x27;chat_id=你的tg id&#x27;</span> \</span><br><span class="line">        --form <span class="string">&#x27;parse_mode=markdown&#x27;</span></span><br><span class="line">        <span class="built_in">exit</span> 0</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>ps: HM的脚本并不可用，所以我对脚本进行了修改</p>
 <p><strong>给 Shell 脚本赋予执行权限：</strong></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">chmod</span> +<span class="selector-tag">x</span> <span class="selector-tag">terraform</span><span class="selector-class">.sh</span></span><br></pre></td></tr></table></figure>
 <p><strong>使用以下命令后台执行脚本</strong></p>
@@ -219,10 +220,10 @@
         <category>科学上网</category>
       </categories>
       <tags>
-        <tag>科学上网</tag>
         <tag>v2ray</tag>
         <tag>heroku</tag>
         <tag>cloudflare</tag>
+        <tag>科学上网</tag>
       </tags>
   </entry>
   <entry>
@@ -443,13 +444,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>日程</title>
-    <url>/schedule/index.html</url>
+    <title>标签</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
-    <title>标签</title>
-    <url>/tags/index.html</url>
+    <title>日程</title>
+    <url>/schedule/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>
