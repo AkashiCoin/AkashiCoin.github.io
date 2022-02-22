@@ -10,8 +10,62 @@
 ]]></content>
   </entry>
   <entry>
+    <title>白嫖Railway的高性能免费vps</title>
+    <url>/2022/02/23/Railway-vps/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p> Railway每个月只有5刀的免费额度，请注意部署项目的资源使用量</p>
+</li>
+<li><p> 虽然官网并没有指出大流量会怎么样，但为了账号着想，请避免大流量消耗</p>
+</li>
+<li><p> Railway官网虽然指出有资源限制，但经过测试发现只有内存限制为512M，可能跑一些软件会爆内存</p>
+</li>
+<li><p> vps本质为一个docker，限制比较多，请酌情考虑</p>
+</li>
+<li><p>   请不要用同一个浏览器登录多个账号，不然可能导致全部账号都被封禁</p>
+</li>
+</ol>
+<h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol>
+<li><p> 注册满30天的github账号，一个邮箱</p>
+</li>
+<li><p> 一个可以使用脑子</p>
+</li>
+<li><p> 可能需要的非境内环境</p>
+</li>
+</ol>
+<h2 id="一、利用Ngrok做内网穿透"><a href="#一、利用Ngrok做内网穿透" class="headerlink" title="一、利用Ngrok做内网穿透"></a>一、利用Ngrok做内网穿透</h2><h3 id="1-1-注册-Railway-账号和-Ngrok-账号"><a href="#1-1-注册-Railway-账号和-Ngrok-账号" class="headerlink" title="1.1 注册 Railway 账号和 Ngrok 账号"></a>1.1 注册 Railway 账号和 Ngrok 账号</h3><p>1、点击 <a href="https://railway.app/login">Railway</a> 进入网站注册 Railway 账号，直接使用  github 账号登录即可</p>
+<p>2、点击 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 进入网站，点击下方的 <code>Sign up for free!</code> 注册账号</p>
+<p>3、再次进入 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 复制保存你的 <code>Authtoken</code></p>
+<p>ps: Ngrok 的免费账号一个地区只能拥有一个内网穿透服务，所以想要部署多个项目请修改地区</p>
+<h3 id="1-2-部署"><a href="#1-2-部署" class="headerlink" title="1.2 部署"></a>1.2 部署</h3><p>1、点击下方按钮部署</p>
+<p><a href="https://railway.app/new/template?template=https://github.com/AkashiCoin/Railway-Ngrok&envs=NGROK_TOKEN,PORT,REGION&NGROK_TOKENDesc=%E5%9C%A8Ngrok%E6%B3%A8%E5%86%8C%E5%BE%97%E5%88%B0%E7%9A%84Authtoken&PORTDesc=%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9A%84%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%EF%BC%8C%E9%BB%98%E8%AE%A480&PORTDefault=80&REGIONDesc=Ngrok%E7%9A%84%E5%9C%B0%E5%8C%BA%EF%BC%8C%E9%BB%98%E8%AE%A4jp%EF%BC%8C%E5%8F%AF%E9%80%89us/eu/ap/au/sa/jp/in&REGIONDefault=jp&referralCode=IGBnmG"><img src="https://railway.app/button.svg" alt="Deploy on Railway"></a></p>
+<p><code>NGROK_TOKEN</code> 中填入在 <code>Ngrok</code> 注册得到的 <code>Authtoken</code></p>
+<p><code>PORT</code> 中填入你搭建应用的端口，Railway 会自动将其转发到给你的域名上</p>
+<p><code>REGION</code> 中填入隧道所在的地区，距离越近越好</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230202715.png"></p>
+<p>2、部署完成后会在 <code>Deploy log</code> 中得到ssh连接的地址和端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230207622.png"></p>
+<h2 id="二、使用案列，部署Cloudreve私有云"><a href="#二、使用案列，部署Cloudreve私有云" class="headerlink" title="二、使用案列，部署Cloudreve私有云"></a>二、使用案列，部署Cloudreve私有云</h2><h3 id="2-1-安装Cloudreve"><a href="#2-1-安装Cloudreve" class="headerlink" title="2.1 安装Cloudreve"></a>2.1 安装Cloudreve</h3><p>1、因为Cloudreve监听5212端口，但为使 Ngrok 隧道不冲突，所以首先我们去 Railway 删除本次部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230238738.png"></p>
+<p>2、再去项目中修改 <code>PORT</code> 为 <code>5212</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230233611.png"></p>
+<p>3、使用重新得到的ssh连接命令连接到vps，使用命令一键安装Cloudreve，可以使用 <code>tail -f cloudreve.log</code> 查看部署日志得到默认账号密码</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> cloudreve &amp;&amp; <span class="keyword">cd</span> cloudreve</span><br><span class="line">wget http<span class="variable">s:</span>//pan.yropo.workers.dev/<span class="keyword">source</span>/linux/cloudreve &amp;&amp; chmod +<span class="keyword">x</span> cloudreve</span><br><span class="line">nohup ./cloudreve &gt;&gt; cloudreve.<span class="built_in">log</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-访问Cloudreve私有云"><a href="#2-2-访问Cloudreve私有云" class="headerlink" title="2.2 访问Cloudreve私有云"></a>2.2 访问Cloudreve私有云</h3><p>最后访问 Railway给的域名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230244576.png"></p>
+<h3 id="2-3-自定义域名访问"><a href="#2-3-自定义域名访问" class="headerlink" title="2.3 自定义域名访问"></a>2.3 自定义域名访问</h3><p>Railway 可以让我们自定义域名访问，只需要在 <code>Domains</code> 中点击 <code>Add Custom Domain</code> 添加自己的域名，并到自己的 DNS 解析商添加 <code>CNAME</code> 解析便可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230249672.png"></p>
+<p>最后的效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230252928.png"></p>
+<p>ps: Cloudreve的配置还没完，可以自行谷歌配置 <code>Redis</code> 、 <code>MySql数据库</code> 、 <code>Aria2离线下载</code> ，另外这个vps的带宽有 10G 口，所以跑一些离线下载啥的还是挺给力<del>(小心被封)(不是</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为本质来讲这台 vps 是一个 docker 所以基本上 docker 能干的事他都能干，但实际应用中因为 512M 内存的限制一些程序会爆内存而被杀掉</p>
+<p>但因为一个 docker，而且 railway 也可以 Dockerfile 部署，所以自行修改 Dockerfile 也能玩出一些花来<del>(比如说我自己github的一些项目)(不是</del></p>
+<p>ps: (22.02.23)虽然不知多久会死掉，但对目前来讲还能薅</p>
+]]></content>
+  </entry>
+  <entry>
     <title>使用脚本自动抢Oracle ARM服务器，并使用tg机器人通知</title>
-    <url>/2022/01/17/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%8A%A2Oracle-ARM%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%B9%B6%E4%BD%BF%E7%94%A8tg%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E7%9F%A5/</url>
+    <url>/2022/01/17/OracleARM-tgbot/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="需要用到的"><a href="#需要用到的" class="headerlink" title="需要用到的"></a>需要用到的</h2><ul>
 <li>  一台 vps 服务器</li>
 <li>  Terraform</li>
@@ -88,7 +142,7 @@
   </entry>
   <entry>
     <title>利用GitHub+jsdelivr搭建一个图床</title>
-    <url>/2022/01/16/%E5%88%A9%E7%94%A8GitHub-jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BA%8A/</url>
+    <url>/2022/01/16/GitHub-jsdelivr-img/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p>
 </blockquote>
@@ -158,7 +212,7 @@
   </entry>
   <entry>
     <title>利用heroku + cloudflare搭建v2ray免费科学上网</title>
-    <url>/2022/01/16/%E5%88%A9%E7%94%A8heroku-cloudflare%E6%90%AD%E5%BB%BAv2ray%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <url>/2022/01/16/heroku-v2ray-cloudflare/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li><p> Heroku免费套餐每月只有550小时的免费时间，适合在非常时期当做备胎使用</p>
@@ -179,8 +233,20 @@
 <h2 id="一、服务端部署"><a href="#一、服务端部署" class="headerlink" title="一、服务端部署"></a>一、服务端部署</h2><h3 id="1-1-注册Heroku账户"><a href="#1-1-注册Heroku账户" class="headerlink" title="1.1 注册Heroku账户"></a>1.1 注册Heroku账户</h3><p>很简单，根据官网的提示操作就行:<a href="https://signup.heroku.com/">点击注册</a></p>
 <p>注意：请使用外网IP注册，且请准备好翻译工具，并在收到邮件后激活账户；注册时不能使用QQ邮箱</p>
 <h3 id="1-2-在Heroku部署v2ray"><a href="#1-2-在Heroku部署v2ray" class="headerlink" title="1.2 在Heroku部署v2ray"></a>1.2 在Heroku部署v2ray</h3><p>点击下方按钮部署应用<a href="https://dashboard.heroku.com/new?template=https://github.com/AkashiCoin/heroku-v2ray"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p>
-<p>ps: （2022.01.16）最近大佬们的仓库都被heroku给ban了，所以想要使用可以自建一个仓库，然后import大佬Fbclswl0827的heroku-v2ray项目自行部署</p>
+<p>ps: （2022.01.16）最近大佬们的仓库都被heroku给ban了，所以想要使用可以自建一个仓库，<del>然后import大佬Fbclswl0827的heroku-v2ray项目自行部署</del></p>
 <p>ps: 上面部署方式是我自己的仓库</p>
+<h4 id="Extra-创建github项目仓库"><a href="#Extra-创建github项目仓库" class="headerlink" title="Extra 创建github项目仓库"></a>Extra 创建github项目仓库</h4><p>1、打开 <a href="https://github.com/">github</a> 登录你自己的账号</p>
+<p>2、点击左边的 <code>New</code> 创建一个仓库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230018715.png"></p>
+<p>3、在打开的页面中填写仓库名称，然后点击 <code>Create repository</code> 创建仓库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230019403.png"></p>
+<p>4、在新打开的页面下翻找到 <code>import</code> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020258.png"></p>
+<p>5、在 <code>Your old repository’s clone URL</code> 中填入 <code>https://github.com/bclswl0827/v2ray-heroku.git</code>, 随后点击 <code>Begin import</code> 导入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020282.png"></p>
+<p>6、导入完成后，进入仓库，修改 <code>README.md</code> ，修改完成后点击下方 <code>Commit changes</code> 提交</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020762.png"></p>
+<p>7、最后进入仓库点击 <code>Deploy to Heroku</code> 图标开始部署</p>
 <p>App name随便填写，可用就行；Choose a region就是你的服务器地区；UUID可自行修改（建议修改，使用默认UUID会使节点暴露在危险下）；然后点击<code>Deploy app</code>系统会自动部署</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161405003.png" alt="1.png"></p>
 <p>稍微等待一会儿，几秒的样子，直到全部打勾变绿</p>
@@ -220,15 +286,15 @@
         <category>科学上网</category>
       </categories>
       <tags>
+        <tag>科学上网</tag>
         <tag>v2ray</tag>
         <tag>heroku</tag>
         <tag>cloudflare</tag>
-        <tag>科学上网</tag>
       </tags>
   </entry>
   <entry>
     <title>417小剧场</title>
-    <url>/2021/08/17/417%E5%B0%8F%E5%89%A7%E5%9C%BA/</url>
+    <url>/2021/08/17/417work/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="417小剧场"><a href="#417小剧场" class="headerlink" title="417小剧场"></a>417小剧场</h2><hr>
 <div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/417小剧场.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
@@ -237,7 +303,7 @@
   </entry>
   <entry>
     <title>Arcaea练习记录</title>
-    <url>/2021/08/17/Arcaea%E7%BB%83%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <url>/2021/08/17/Arcaea-ex/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
 <h2 id="2021-8-14"><a href="#2021-8-14" class="headerlink" title="2021-8-14"></a>2021-8-14</h2><h3 id="Grievous-Lady-病女-–-AA"><a href="#Grievous-Lady-病女-–-AA" class="headerlink" title="Grievous Lady(病女)  – AA"></a>Grievous Lady(病女)  – AA</h3><div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"loop":"yes","screenshot":true,"video":{"url":"https://pan.yropo.top/video/Arcaea/%E7%97%85%E5%A5%B3AA_20210817_0249.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
@@ -254,16 +320,16 @@
     <title>乙女解剖 - 希儿</title>
     <url>/2020/12/27/home/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="乙女解剖-希儿"><a href="#乙女解剖-希儿" class="headerlink" title="乙女解剖 - 希儿"></a>乙女解剖 - 希儿</h2><hr>
-<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
+<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.flv"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></video>]]></content>
       <categories>
         <category>视频</category>
       </categories>
   </entry>
   <entry>
     <title>魔法禁书目录 - 炮姐</title>
-    <url>/2020/12/27/test3/</url>
+    <url>/2020/12/27/bilibili/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="魔法禁书目录-炮姐"><a href="#魔法禁书目录-炮姐" class="headerlink" title="魔法禁书目录 - 炮姐"></a>魔法禁书目录 - 炮姐</h2><hr>
-<div id="dplayer6" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer6"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","video":{"url":"https://pan.yropo.top/video/%E7%82%AE%E5%A7%903262388-1hd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -273,7 +339,7 @@
     <url>/2020/12/27/fight-the-virus/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
 <h2 id="Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌"><a href="#Alvin-Oon-Fight-the-Virus-抗击新冠状肺炎之歌" class="headerlink" title="Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)"></a>Alvin Oon - Fight the Virus (抗击新冠状肺炎之歌)</h2><hr>
-<div id="dplayer4" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer4"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+<div id="dplayer5" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer5"),"theme":"#66CCFF","loop":"yes","screenshot":"yes","hotkey":true,"preload":"auto","video":{"url":"https://pan.yropo.top/video/Alvin%20Oon%20-%20Fight%20the%20Virus%20(%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E7%8A%B6%E8%82%BA%E7%82%8E%E4%B9%8B%E6%AD%8C)_t0033krkcpj_3_0%20[mqms].mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <categories>
         <category>视频</category>
       </categories>
@@ -433,15 +499,15 @@
 ]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-  </entry>
-  <entry>
     <title>link</title>
     <url>/link/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
 ]]></content>
+  </entry>
+  <entry>
+    <title>日程</title>
+    <url>/schedule/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
     <title>标签</title>
@@ -449,8 +515,8 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
-    <title>日程</title>
-    <url>/schedule/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>

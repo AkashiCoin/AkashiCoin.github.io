@@ -1,1 +1,76 @@
-.layout_post .post-copyright .post-copyright-info a{text-decoration:none}.author-info__name{color:#ff7242}#footer{background:rgba(255,255,255,.15);color:#000;border-top-right-radius:20px;border-top-left-radius:20px;backdrop-filter:saturate(100%) blur(5px)}#footer::before{background:rgba(255,255,255,.15)}#footer #footer-wrap{color:var(--font-color)}#footer #footer-wrap a{color:var(--font-color)}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background-color:#e98c8c;background-image:-webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);border-radius:2em}::-webkit-scrollbar-corner{background-color:transparent}::-moz-selection{color:#fff;background-color:#e58a8a}@media screen and (max-width:800px){#aside_content div:not(:last-child){display:none;font-size:13px}}#recent-posts>.recent-post-item,.layout>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post{background:var(--light_bg_color)}#aside-content .card-widget,.sticky_layout>.card-widget{background:var(--light_bg_color)}
+/* 版权链接去掉下划线 */
+.layout_post .post-copyright .post-copyright-info a {
+    text-decoration: none;
+}
+
+/* 博主昵称颜色 */
+.author-info__name {
+    color: #ff7242;
+}
+
+/* 页脚透明 */
+
+#footer {
+    background: rgba(255, 255, 255, .15);
+    color: #000;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    backdrop-filter: saturate(100%) blur(5px)
+}
+
+#footer::before {
+    background: rgba(255, 255, 255, .15)
+}
+
+#footer #footer-wrap {
+    color: var(--font-color)
+}
+
+#footer #footer-wrap a {
+    color: var(--font-color)
+}
+
+/* 滚动条 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e98c8c;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #e58a8a;
+}
+
+/*移动端优化：去除归档、标签、最新文章、公告、、只保留网站统计*/
+
+@media screen and (max-width: 800px) {
+    #aside_content div:not(:last-child) {
+        display: none;
+        font-size: 13px;
+    }
+}
+
+/*全局背景渐变色*/
+#recent-posts>.recent-post-item,
+.layout>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    background: var(--light_bg_color)
+}
+
+#aside-content .card-widget,
+.sticky_layout>.card-widget {
+    background: var(--light_bg_color)
+}
