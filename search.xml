@@ -62,6 +62,13 @@
 <p>但因为一个 docker，而且 railway 也可以 Dockerfile 部署，所以自行修改 Dockerfile 也能玩出一些花来<del>(比如说我自己github的一些项目)(不是</del></p>
 <p>ps: (22.02.23)虽然不知多久会死掉，但对目前来讲还能薅</p>
 ]]></content>
+      <categories>
+        <category>vps</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>vps</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用脚本自动抢Oracle ARM服务器，并使用tg机器人通知</title>
@@ -499,6 +506,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+  </entry>
+  <entry>
     <title>link</title>
     <url>/link/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
@@ -512,11 +524,6 @@
   <entry>
     <title>标签</title>
     <url>/tags/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-  </entry>
-  <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>
