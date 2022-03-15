@@ -1,212 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>利用GitHub+jsdelivr搭建一个图床</title>
-    <url>/2022/01/16/GitHub-jsdelivr-img/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p>
-</blockquote>
-<h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol>
-<li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
-<li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
-<li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
-<li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
+    <title>Sakuraの其他网站</title>
+    <url>/2020/12/25/index/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
+<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
+<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
+<p>Let’s START!</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>白嫖Railway的高性能免费vps</title>
+    <url>/2022/02/23/Railway-vps/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p> Railway每个月只有5刀的免费额度，请注意部署项目的资源使用量</p>
+</li>
+<li><p> 虽然官网并没有指出大流量会怎么样，但为了账号着想，请避免大流量消耗</p>
+</li>
+<li><p> Railway官网虽然指出有资源限制，但经过测试发现只有内存限制为512M，可能跑一些软件会爆内存</p>
+</li>
+<li><p> vps本质为一个docker，限制比较多，请酌情考虑</p>
+</li>
+<li><p>   请不要用同一个浏览器登录多个账号，不然可能导致全部账号都被封禁</p>
+</li>
 </ol>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul>
-<li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol>
+<li><p> 注册满30天的github账号，一个邮箱</p>
 </li>
-<li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p> 一个可以使用脑子</p>
 </li>
-<li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p> 可能需要的非境内环境</p>
 </li>
-<li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-</li>
-<li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<ul>
-<li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
-</ul>
-<h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote>
-<p>前往下载PicG（<a href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p>
-</blockquote>
-<p>设定仓库名：按照用户名/图床仓库名 的格式填写</p>
-<p>设定分支名：main</p>
-<p>设定 Token：粘贴之前生成的Token</p>
-<p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
-<p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a href="https://chuibi.cn/">吹逼图床</a></p>
-<ul>
-<li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-</li>
-<li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<ul>
-<li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<ul>
-<li>  回到picGo进行配置</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
-<p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p>
-<blockquote>
-<p>值得注意的是,理论上讲GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m[也就是仓库大小]仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
-</blockquote>
-<p>此外 PicGo还有相册功能，可以对已上传的图片进行删除，修改链接等快捷操作,PicGo还可以生成不同格式的链接、支持批量上传、快捷键上传、自定义链接格式、上传前重命名等，更多功能自己去探索吧！</p>
-<p>完成之后就可以畅快书写，上传直接快捷键完成，复制粘贴，再也不用手动去拖动图片上传了，更过功能尽情去体验吧！</p>
+</ol>
+<h2 id="一、利用Ngrok做内网穿透"><a href="#一、利用Ngrok做内网穿透" class="headerlink" title="一、利用Ngrok做内网穿透"></a>一、利用Ngrok做内网穿透</h2><h3 id="1-1-注册-Railway-账号和-Ngrok-账号"><a href="#1-1-注册-Railway-账号和-Ngrok-账号" class="headerlink" title="1.1 注册 Railway 账号和 Ngrok 账号"></a>1.1 注册 Railway 账号和 Ngrok 账号</h3><p>1、点击 <a href="https://railway.app/login">Railway</a> 进入网站注册 Railway 账号，直接使用  github 账号登录即可</p>
+<p>2、点击 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 进入网站，点击下方的 <code>Sign up for free!</code> 注册账号</p>
+<p>3、再次进入 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 复制保存你的 <code>Authtoken</code></p>
+<p>ps: Ngrok 的免费账号一个地区只能拥有一个内网穿透服务，所以想要部署多个项目请修改地区</p>
+<h3 id="1-2-部署"><a href="#1-2-部署" class="headerlink" title="1.2 部署"></a>1.2 部署</h3><p>1、点击下方按钮部署</p>
+<p><a href="https://railway.app/new/template?template=https://github.com/AkashiCoin/Railway-Ngrok&envs=NGROK_TOKEN,PORT,REGION&NGROK_TOKENDesc=%E5%9C%A8Ngrok%E6%B3%A8%E5%86%8C%E5%BE%97%E5%88%B0%E7%9A%84Authtoken&PORTDesc=%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9A%84%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%EF%BC%8C%E9%BB%98%E8%AE%A480&PORTDefault=80&REGIONDesc=Ngrok%E7%9A%84%E5%9C%B0%E5%8C%BA%EF%BC%8C%E9%BB%98%E8%AE%A4jp%EF%BC%8C%E5%8F%AF%E9%80%89us/eu/ap/au/sa/jp/in&REGIONDefault=jp&referralCode=IGBnmG"><img src="https://railway.app/button.svg" alt="Deploy on Railway"></a></p>
+<p><code>NGROK_TOKEN</code> 中填入在 <code>Ngrok</code> 注册得到的 <code>Authtoken</code></p>
+<p><code>PORT</code> 中填入你搭建应用的端口，Railway 会自动将其转发到给你的域名上</p>
+<p><code>REGION</code> 中填入隧道所在的地区，距离越近越好</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230202715.png"></p>
+<p>2、部署完成后会在 <code>Deploy log</code> 中得到ssh连接的地址和端口</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230207622.png"></p>
+<h2 id="二、使用案列，部署Cloudreve私有云"><a href="#二、使用案列，部署Cloudreve私有云" class="headerlink" title="二、使用案列，部署Cloudreve私有云"></a>二、使用案列，部署Cloudreve私有云</h2><h3 id="2-1-安装Cloudreve"><a href="#2-1-安装Cloudreve" class="headerlink" title="2.1 安装Cloudreve"></a>2.1 安装Cloudreve</h3><p>1、因为Cloudreve监听5212端口，但为使 Ngrok 隧道不冲突，所以首先我们去 Railway 删除本次部署</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230238738.png"></p>
+<p>2、再去项目中修改 <code>PORT</code> 为 <code>5212</code></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230233611.png"></p>
+<p>3、使用重新得到的ssh连接命令连接到vps，使用命令一键安装Cloudreve，可以使用 <code>tail -f cloudreve.log</code> 查看部署日志得到默认账号密码</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> cloudreve &amp;&amp; <span class="keyword">cd</span> cloudreve</span><br><span class="line">wget http<span class="variable">s:</span>//pan.yropo.workers.dev/<span class="keyword">source</span>/linux/cloudreve &amp;&amp; chmod +<span class="keyword">x</span> cloudreve</span><br><span class="line">nohup ./cloudreve &gt;&gt; cloudreve.<span class="built_in">log</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-访问Cloudreve私有云"><a href="#2-2-访问Cloudreve私有云" class="headerlink" title="2.2 访问Cloudreve私有云"></a>2.2 访问Cloudreve私有云</h3><p>最后访问 Railway给的域名</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230244576.png"></p>
+<h3 id="2-3-自定义域名访问"><a href="#2-3-自定义域名访问" class="headerlink" title="2.3 自定义域名访问"></a>2.3 自定义域名访问</h3><p>Railway 可以让我们自定义域名访问，只需要在 <code>Domains</code> 中点击 <code>Add Custom Domain</code> 添加自己的域名，并到自己的 DNS 解析商添加 <code>CNAME</code> 解析便可</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230249672.png"></p>
+<p>最后的效果图</p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230252928.png"></p>
+<p>ps: Cloudreve的配置还没完，可以自行谷歌配置 <code>Redis</code> 、 <code>MySql数据库</code> 、 <code>Aria2离线下载</code> ，另外这个vps的带宽有 10G 口，所以跑一些离线下载啥的还是挺给力<del>(小心被封)(不是</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为本质来讲这台 vps 是一个 docker 所以基本上 docker 能干的事他都能干，但实际应用中因为 512M 内存的限制一些程序会爆内存而被杀掉</p>
+<p>但因为一个 docker，而且 railway 也可以 Dockerfile 部署，所以自行修改 Dockerfile 也能玩出一些花来<del>(比如说我自己github的一些项目)(不是</del></p>
+<p>ps: (22.02.23)虽然不知多久会死掉，但对目前来讲还能薅</p>
 ]]></content>
       <categories>
-        <category>网站</category>
+        <category>vps</category>
       </categories>
       <tags>
         <tag>github</tag>
-        <tag>jsdelivr</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo主题美化-鼠标点击特效</title>
-    <url>/2020/12/27/Hexo-click/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-鼠标点击特效</strong></p>
-<p>从各个站点里收集了以下四个比较常用的鼠标点击特效：</p>
-<ul>
-<li>礼花特效</li>
-</ul>
-<p><img src="https://pan.yropo.top/img/20201229/cursor-fireworks.gif" alt="fireworks">  </p>
-<p>下载：<a href="https://pan.yropo.top/source/js/firework.js">礼花特效</a></p>
-<ul>
-<li>爆炸特效</li>
-</ul>
-<p><img src="https://pan.yropo.top/img/20201229/cursor-explosion.gif" alt="explosin">  </p>
-<p>下载：<a href="https://pan.yropo.top/source/js/explosion.min.js">爆炸特效</a></p>
-<ul>
-<li>浮出爱心</li>
-</ul>
-<p><img src="https://pan.yropo.top/img/20201229/cursor-love.gif" alt="love">  </p>
-<p>下载：<a href="https://pan.yropo.top/source/js/love.min.js">浮出爱心</a></p>
-<ul>
-<li>浮出文字</li>
-</ul>
-<p><img src="https://pan.yropo.top/img/20201229/cursor-text.gif" alt="cursor">  </p>
-<p>下载：<a href="https://pan.yropo.top/source/js/text.js">浮出文字</a></p>
-<p>将脚本文件放置于 <code>themes/next/source/js/cursor</code> 目录下（如果没有相应的目录，需要自行创建，可以根据自己习惯命名）。</p>
-<p>在主题自定义布局文件 <code>themes/next/layout/_custom/custom.swig</code> （如果没有 custom.swig 文件，需自行创建）中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.cursor_effect == <span class="string">&quot;fireworks&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/fireworks.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;explosion&quot;</span> %&#125;</span><br><span class="line">  &lt;canvas <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;fireworks&quot;</span> style=<span class="string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;&lt;/canvas&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/explosion.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;love&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/love.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;text&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/text.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text </span></span><br><span class="line">  <span class="attr">cursor_effect:</span> <span class="string">love</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客搭建起始</title>
-    <url>/2020/12/27/Hexo-start/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Star’s-Tech-Blog"><a href="#Star’s-Tech-Blog" class="headerlink" title="Star’s Tech Blog"></a>Star’s Tech Blog</h2><p>框架驱动：<a href="https://hexo.io/zh-cn/">Hexo</a>  </p>
-<p>博客主题：<a href="https://github.com/theme-next/hexo-theme-next">NexT ^7.x</a></p>
-<h2 id="博客搭建与配置"><a href="#博客搭建与配置" class="headerlink" title="博客搭建与配置"></a>博客搭建与配置</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
-<li><p><a href="http://nodejs.org/">Node.js</a></p>
-</li>
-<li><p><a href="http://git-scm.com/">Git</a></p>
-</li>
-</ul>
-<h3 id="Hexo-搭建"><a href="#Hexo-搭建" class="headerlink" title="Hexo 搭建"></a>Hexo 搭建</h3><p>安装 Hexo，打开 Git Bash 命令窗口，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>安装好 Hexo 后，在任意目录新建一个空文件夹，名字可以为 blogs，然后进入这个文件夹，在命令行输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init </span><br></pre></td></tr></table></figure>
-<p>执行完成后（如果命令窗口出现橙色的 WARN 不用管），生成文件结构：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├── node_modules       //依赖安装目录</span><br><span class="line">├── scaffolds          //模板文件夹，新建的文章将会从此目录下的文件中继承格式</span><br><span class="line">|   ├── draft.md         //草稿模板</span><br><span class="line">|   ├── page.md          //页面模板</span><br><span class="line">|   └── post.md          //文章模板</span><br><span class="line">├── <span class="built_in">source</span>             //资源文件夹，用于放置图片、数据、文章等资源</span><br><span class="line">|   └── _posts           //文章目录</span><br><span class="line">├── themes             //主题文件夹</span><br><span class="line">|   └── landscape        //默认主题</span><br><span class="line">├── .gitignore         //指定不纳入git版本控制的文件</span><br><span class="line">├── _config.yml        //站点配置文件</span><br><span class="line">├── db.json            </span><br><span class="line">├── package.json</span><br><span class="line">└── package-lock.json</span><br></pre></td></tr></table></figure>
-<p>下载依赖包，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>依赖包下载完成后，输入如下命令启动 hexo 的内置 Web 服务器：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g // 打包文件</span><br><span class="line"></span><br><span class="line">hexo s // 启动服务器</span><br></pre></td></tr></table></figure>
-<p>然后可以在在浏览器中通过地址 <a href="http://localhost:4000/">http://localhost:4000/</a> 访问博客了。</p>
-<h3 id="更换-NexT-主题"><a href="#更换-NexT-主题" class="headerlink" title="更换 NexT 主题"></a>更换 NexT 主题</h3><p>Hexo 更换主题的方式很简单，只需要将主题文件拷贝至根目录下的 themes 目录中， 然后修改根目录下 <code>_config.yml</code> 文件中的 theme 字段，便可完成更换。</p>
-<p>在博客项目的根目录下，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
-<p>打开根目录下 <code>_config.yml</code> 文件,将 theme 字段的值修改为 next。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-<p>这个时候需要重启服务器 <code>hexo g &amp;&amp; hexo s</code> 并刷新才能使主题生效。</p>
-<h3 id="重要定义"><a href="#重要定义" class="headerlink" title="重要定义"></a>重要定义</h3><p>在项目文件中存在两个 <code>_config.yml</code> 文件，为了方便区分。</p>
-<ul>
-<li><p>项目根目录下的 <code>_config.yml</code> 文件叫作<code>站点配置文件</code>。</p>
-</li>
-<li><p>主题文件夹根目录下的 <code>themes/next/_config.yml</code> 文件叫作<code>主题配置文件</code>。</p>
-</li>
-</ul>
-<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><p><strong>GitHub 配置</strong></p>
-<ul>
-<li><p>创建 <a href="https://github.com/">GitHub</a> 账号</p>
-</li>
-<li><p>创建仓库，仓库名必须是：&lt;GitHub 账号名称&gt;.github.io，这是GitHub pages 的特殊命名规范</p>
-</li>
-</ul>
-<p><strong>修改站点配置文件 _config.yml</strong></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;GitHub</span> <span class="string">账号名称&gt;/&lt;GitHub</span> <span class="string">账号名称&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>：<code>GitHub pages</code> 仅在 <code>master</code> 分支下实现。</p>
-<p><strong>部署</strong>  </p>
-<ul>
-<li>在项目根目录下，安装 Git 部署插件：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>部署到 Github Pages</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>部署完成后，在浏览器访问网址：https://&lt;Github账号名称&gt;.github.io 即可查看博客。</p>
-<p>详细过程可以参考：<a href="https://blog.csdn.net/weixin_39510813/article/details/80216552">借助 GitHub pages 搭建静态个人网站并绑定域名</a></p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo主题美化-评论打字特性</title>
-    <url>/2020/12/27/Hexo-typing-effect/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p>
-<p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p>
-<p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p>
-<p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p>
-<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure>
-<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo主题美化-网站运行时间</title>
-    <url>/2020/12/27/Hexo-webtime/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p>
-<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
+        <tag>vps</tag>
       </tags>
   </entry>
   <entry>
@@ -287,64 +148,73 @@
       </tags>
   </entry>
   <entry>
-    <title>白嫖Railway的高性能免费vps</title>
-    <url>/2022/02/23/Railway-vps/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><p> Railway每个月只有5刀的免费额度，请注意部署项目的资源使用量</p>
-</li>
-<li><p> 虽然官网并没有指出大流量会怎么样，但为了账号着想，请避免大流量消耗</p>
-</li>
-<li><p> Railway官网虽然指出有资源限制，但经过测试发现只有内存限制为512M，可能跑一些软件会爆内存</p>
-</li>
-<li><p> vps本质为一个docker，限制比较多，请酌情考虑</p>
-</li>
-<li><p>   请不要用同一个浏览器登录多个账号，不然可能导致全部账号都被封禁</p>
-</li>
+    <title>利用GitHub+jsdelivr搭建一个图床</title>
+    <url>/2022/01/16/GitHub-jsdelivr-img/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>转载自 Daibi_mua <a href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a href="https://keepdai.cn/">https://keepdai.cn</a></p>
+</blockquote>
+<h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol>
+<li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
+<li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
+<li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
+<li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
 </ol>
-<h2 id="必要的准备"><a href="#必要的准备" class="headerlink" title="必要的准备"></a>必要的准备</h2><ol>
-<li><p> 注册满30天的github账号，一个邮箱</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul>
+<li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p> 一个可以使用脑子</p>
+<li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p> 可能需要的非境内环境</p>
+<li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-</ol>
-<h2 id="一、利用Ngrok做内网穿透"><a href="#一、利用Ngrok做内网穿透" class="headerlink" title="一、利用Ngrok做内网穿透"></a>一、利用Ngrok做内网穿透</h2><h3 id="1-1-注册-Railway-账号和-Ngrok-账号"><a href="#1-1-注册-Railway-账号和-Ngrok-账号" class="headerlink" title="1.1 注册 Railway 账号和 Ngrok 账号"></a>1.1 注册 Railway 账号和 Ngrok 账号</h3><p>1、点击 <a href="https://railway.app/login">Railway</a> 进入网站注册 Railway 账号，直接使用  github 账号登录即可</p>
-<p>2、点击 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 进入网站，点击下方的 <code>Sign up for free!</code> 注册账号</p>
-<p>3、再次进入 <a href="https://dashboard.ngrok.com/auth">Ngrok</a> 复制保存你的 <code>Authtoken</code></p>
-<p>ps: Ngrok 的免费账号一个地区只能拥有一个内网穿透服务，所以想要部署多个项目请修改地区</p>
-<h3 id="1-2-部署"><a href="#1-2-部署" class="headerlink" title="1.2 部署"></a>1.2 部署</h3><p>1、点击下方按钮部署</p>
-<p><a href="https://railway.app/new/template?template=https://github.com/AkashiCoin/Railway-Ngrok&envs=NGROK_TOKEN,PORT,REGION&NGROK_TOKENDesc=%E5%9C%A8Ngrok%E6%B3%A8%E5%86%8C%E5%BE%97%E5%88%B0%E7%9A%84Authtoken&PORTDesc=%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9A%84%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%EF%BC%8C%E9%BB%98%E8%AE%A480&PORTDefault=80&REGIONDesc=Ngrok%E7%9A%84%E5%9C%B0%E5%8C%BA%EF%BC%8C%E9%BB%98%E8%AE%A4jp%EF%BC%8C%E5%8F%AF%E9%80%89us/eu/ap/au/sa/jp/in&REGIONDefault=jp&referralCode=IGBnmG"><img src="https://railway.app/button.svg" alt="Deploy on Railway"></a></p>
-<p><code>NGROK_TOKEN</code> 中填入在 <code>Ngrok</code> 注册得到的 <code>Authtoken</code></p>
-<p><code>PORT</code> 中填入你搭建应用的端口，Railway 会自动将其转发到给你的域名上</p>
-<p><code>REGION</code> 中填入隧道所在的地区，距离越近越好</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230202715.png"></p>
-<p>2、部署完成后会在 <code>Deploy log</code> 中得到ssh连接的地址和端口</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230207622.png"></p>
-<h2 id="二、使用案列，部署Cloudreve私有云"><a href="#二、使用案列，部署Cloudreve私有云" class="headerlink" title="二、使用案列，部署Cloudreve私有云"></a>二、使用案列，部署Cloudreve私有云</h2><h3 id="2-1-安装Cloudreve"><a href="#2-1-安装Cloudreve" class="headerlink" title="2.1 安装Cloudreve"></a>2.1 安装Cloudreve</h3><p>1、因为Cloudreve监听5212端口，但为使 Ngrok 隧道不冲突，所以首先我们去 Railway 删除本次部署</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230238738.png"></p>
-<p>2、再去项目中修改 <code>PORT</code> 为 <code>5212</code></p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230233611.png"></p>
-<p>3、使用重新得到的ssh连接命令连接到vps，使用命令一键安装Cloudreve，可以使用 <code>tail -f cloudreve.log</code> 查看部署日志得到默认账号密码</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> cloudreve &amp;&amp; <span class="keyword">cd</span> cloudreve</span><br><span class="line">wget http<span class="variable">s:</span>//pan.yropo.workers.dev/<span class="keyword">source</span>/linux/cloudreve &amp;&amp; chmod +<span class="keyword">x</span> cloudreve</span><br><span class="line">nohup ./cloudreve &gt;&gt; cloudreve.<span class="built_in">log</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-访问Cloudreve私有云"><a href="#2-2-访问Cloudreve私有云" class="headerlink" title="2.2 访问Cloudreve私有云"></a>2.2 访问Cloudreve私有云</h3><p>最后访问 Railway给的域名</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230244576.png"></p>
-<h3 id="2-3-自定义域名访问"><a href="#2-3-自定义域名访问" class="headerlink" title="2.3 自定义域名访问"></a>2.3 自定义域名访问</h3><p>Railway 可以让我们自定义域名访问，只需要在 <code>Domains</code> 中点击 <code>Add Custom Domain</code> 添加自己的域名，并到自己的 DNS 解析商添加 <code>CNAME</code> 解析便可</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230249672.png"></p>
-<p>最后的效果图</p>
-<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230252928.png"></p>
-<p>ps: Cloudreve的配置还没完，可以自行谷歌配置 <code>Redis</code> 、 <code>MySql数据库</code> 、 <code>Aria2离线下载</code> ，另外这个vps的带宽有 10G 口，所以跑一些离线下载啥的还是挺给力<del>(小心被封)(不是</del></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为本质来讲这台 vps 是一个 docker 所以基本上 docker 能干的事他都能干，但实际应用中因为 512M 内存的限制一些程序会爆内存而被杀掉</p>
-<p>但因为一个 docker，而且 railway 也可以 Dockerfile 部署，所以自行修改 Dockerfile 也能玩出一些花来<del>(比如说我自己github的一些项目)(不是</del></p>
-<p>ps: (22.02.23)虽然不知多久会死掉，但对目前来讲还能薅</p>
+<li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
+</ul>
+<h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote>
+<p>前往下载PicG（<a href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p>
+</blockquote>
+<p>设定仓库名：按照用户名/图床仓库名 的格式填写</p>
+<p>设定分支名：main</p>
+<p>设定 Token：粘贴之前生成的Token</p>
+<p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
+<p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a href="https://chuibi.cn/">吹逼图床</a></p>
+<ul>
+<li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+</li>
+<li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<ul>
+<li>  回到picGo进行配置</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p>
+<blockquote>
+<p>值得注意的是,理论上讲GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m[也就是仓库大小]仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</blockquote>
+<p>此外 PicGo还有相册功能，可以对已上传的图片进行删除，修改链接等快捷操作,PicGo还可以生成不同格式的链接、支持批量上传、快捷键上传、自定义链接格式、上传前重命名等，更多功能自己去探索吧！</p>
+<p>完成之后就可以畅快书写，上传直接快捷键完成，复制粘贴，再也不用手动去拖动图片上传了，更过功能尽情去体验吧！</p>
 ]]></content>
       <categories>
-        <category>vps</category>
+        <category>网站</category>
       </categories>
       <tags>
         <tag>github</tag>
-        <tag>vps</tag>
+        <tag>jsdelivr</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
@@ -430,13 +300,143 @@
       </tags>
   </entry>
   <entry>
-    <title>Sakuraの其他网站</title>
-    <url>/2020/12/25/index/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p><a href="https://yropo.top/">Sakuraのblog</a></p>
-<h3 id="网盘"><a href="#网盘" class="headerlink" title="网盘"></a>网盘</h3><p><a href="https://pan.yropo.top/">Sakura Cloud</a>.</p>
-<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><p><a href="https://www.yropo.top/">Sakuraの小站点</a></p>
-<p>Let’s START!</p>
+    <title>Hexo主题美化-鼠标点击特效</title>
+    <url>/2020/12/27/Hexo-click/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-鼠标点击特效</strong></p>
+<p>从各个站点里收集了以下四个比较常用的鼠标点击特效：</p>
+<ul>
+<li>礼花特效</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-fireworks.gif" alt="fireworks">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/firework.js">礼花特效</a></p>
+<ul>
+<li>爆炸特效</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-explosion.gif" alt="explosin">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/explosion.min.js">爆炸特效</a></p>
+<ul>
+<li>浮出爱心</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-love.gif" alt="love">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/love.min.js">浮出爱心</a></p>
+<ul>
+<li>浮出文字</li>
+</ul>
+<p><img src="https://pan.yropo.top/img/20201229/cursor-text.gif" alt="cursor">  </p>
+<p>下载：<a href="https://pan.yropo.top/source/js/text.js">浮出文字</a></p>
+<p>将脚本文件放置于 <code>themes/next/source/js/cursor</code> 目录下（如果没有相应的目录，需要自行创建，可以根据自己习惯命名）。</p>
+<p>在主题自定义布局文件 <code>themes/next/layout/_custom/custom.swig</code> （如果没有 custom.swig 文件，需自行创建）中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.cursor_effect == <span class="string">&quot;fireworks&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/fireworks.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;explosion&quot;</span> %&#125;</span><br><span class="line">  &lt;canvas <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;fireworks&quot;</span> style=<span class="string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;&lt;/canvas&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/explosion.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;love&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/love.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% elseif theme.cursor_effect == <span class="string">&quot;text&quot;</span> %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/cursor/text.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text </span></span><br><span class="line">  <span class="attr">cursor_effect:</span> <span class="string">love</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo主题美化-评论打字特性</title>
+    <url>/2020/12/27/Hexo-typing-effect/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-打字特性</strong></p>
+<p><img src="https://pan.yropo.top/img/20201229/typing-effect.gif" alt="typing"></p>
+<p>下载：<a href="https://pan.yropo.top/source/js/activate-power-mode.min.js">打字礼花</a>  </p>
+<p>将脚本文件放置到 <code>themes/next/source/js</code> 目录下。</p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.typing_effect %&#125;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">&quot;/js/activate-power-mode.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    POWERMODE.colorful = &#123;&#123; theme.typing_effect.colorful &#125;&#125;;</span><br><span class="line">    POWERMODE.shake = &#123;&#123; theme.typing_effect.shake &#125;&#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;input&#x27;</span>, POWERMODE);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>themes/next/_config.yml</code> 中添加如下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># typing effect</span></span><br><span class="line"><span class="attr">typing_effect:</span></span><br><span class="line">  <span class="attr">colorful:</span> <span class="literal">true</span>  <span class="comment"># 礼花特效</span></span><br><span class="line">  <span class="attr">shake:</span> <span class="literal">false</span>  <span class="comment"># 震动特效</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo主题美化-网站运行时间</title>
+    <url>/2020/12/27/Hexo-webtime/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Hexo主题美化-网站运行时间</strong></p>
+<p>在主题自定义配置 <code>themes/next/layout/_custom/custom.swig</code> 文件中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;# 页脚站点运行时间统计 #&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> theme.footer.site_runtime.enable %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ages = moment.preciseDiff(moment(),moment(&#123;&#123; theme.footer.site_runtime.since &#125;&#125;,<span class="string">&quot;YYYYMMDD&quot;</span>));</span><br><span class="line">      ages = ages.replace(<span class="regexp">/years?/</span>, <span class="string">&quot;年&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/months?/</span>, <span class="string">&quot;月&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/days?/</span>, <span class="string">&quot;天&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/hours?/</span>, <span class="string">&quot;小时&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/minutes?/</span>, <span class="string">&quot;分&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/seconds?/</span>, <span class="string">&quot;秒&quot;</span>);</span><br><span class="line">      ages = ages.replace(<span class="regexp">/\d+/g</span>, <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#123; theme.footer.site_runtime.color &#125;&#125;&quot;&gt;$&amp;&lt;/span&gt;&#x27;</span>);</span><br><span class="line">      div.innerHTML = <span class="string">`&#123;&#123; __(&#x27;footer.site_runtime&#x27;)&#125;&#125; <span class="subst">$&#123;ages&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">    <span class="comment">//插入到copyright之后</span></span><br><span class="line">    <span class="keyword">var</span> copyright = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.copyright&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;.footer-inner&quot;</span>).insertBefore(div, copyright.nextSibling);</span><br><span class="line">    timer();</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="string">&quot;timer()&quot;</span>,<span class="number">1000</span>)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>themes/next/layout/_layout.swig</code> 文件 body 标签中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    ...</span><br><span class="line">    &#123;% include <span class="string">&#x27;_custom/custom.swig&#x27;</span> %&#125;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题主题配置文件 <code>themes/next/_config.yml</code> 中添加如下内容：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    ...</span><br><span class="line"><span class="addition">+  # Web Site runtime </span></span><br><span class="line"><span class="addition">+  site_runtime: </span></span><br><span class="line"><span class="addition">+  enable: true </span></span><br><span class="line"><span class="addition">+  # Specify the date when the site was setup</span></span><br><span class="line"><span class="addition">+  since: 20191124</span></span><br><span class="line"><span class="addition">+  # color of number</span></span><br><span class="line"><span class="addition">+  color: &quot;#1890ff&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在文件 <code>themes\next\languages\zh-CN.yml</code> 中补全对应文案：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  footer:</span><br><span class="line">    powered: &quot;由 %s 强力驱动&quot;</span><br><span class="line">    theme: 主题</span><br><span class="line">    # total_views: 总访问量</span><br><span class="line">    # total_visitors: 总访客量</span><br><span class="line">    total_views: &quot;历经 %s 次回眸才与你相遇&quot;</span><br><span class="line">    total_visitors: &quot;我的第 %s 位朋友&quot;</span><br><span class="line"><span class="addition">+   site_runtime: &quot;我已在此等候你&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建起始</title>
+    <url>/2020/12/27/Hexo-start/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Star’s-Tech-Blog"><a href="#Star’s-Tech-Blog" class="headerlink" title="Star’s Tech Blog"></a>Star’s Tech Blog</h2><p>框架驱动：<a href="https://hexo.io/zh-cn/">Hexo</a>  </p>
+<p>博客主题：<a href="https://github.com/theme-next/hexo-theme-next">NexT ^7.x</a></p>
+<h2 id="博客搭建与配置"><a href="#博客搭建与配置" class="headerlink" title="博客搭建与配置"></a>博客搭建与配置</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
+<li><p><a href="http://nodejs.org/">Node.js</a></p>
+</li>
+<li><p><a href="http://git-scm.com/">Git</a></p>
+</li>
+</ul>
+<h3 id="Hexo-搭建"><a href="#Hexo-搭建" class="headerlink" title="Hexo 搭建"></a>Hexo 搭建</h3><p>安装 Hexo，打开 Git Bash 命令窗口，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装好 Hexo 后，在任意目录新建一个空文件夹，名字可以为 blogs，然后进入这个文件夹，在命令行输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init </span><br></pre></td></tr></table></figure>
+<p>执行完成后（如果命令窗口出现橙色的 WARN 不用管），生成文件结构：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├── node_modules       //依赖安装目录</span><br><span class="line">├── scaffolds          //模板文件夹，新建的文章将会从此目录下的文件中继承格式</span><br><span class="line">|   ├── draft.md         //草稿模板</span><br><span class="line">|   ├── page.md          //页面模板</span><br><span class="line">|   └── post.md          //文章模板</span><br><span class="line">├── <span class="built_in">source</span>             //资源文件夹，用于放置图片、数据、文章等资源</span><br><span class="line">|   └── _posts           //文章目录</span><br><span class="line">├── themes             //主题文件夹</span><br><span class="line">|   └── landscape        //默认主题</span><br><span class="line">├── .gitignore         //指定不纳入git版本控制的文件</span><br><span class="line">├── _config.yml        //站点配置文件</span><br><span class="line">├── db.json            </span><br><span class="line">├── package.json</span><br><span class="line">└── package-lock.json</span><br></pre></td></tr></table></figure>
+<p>下载依赖包，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>依赖包下载完成后，输入如下命令启动 hexo 的内置 Web 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g // 打包文件</span><br><span class="line"></span><br><span class="line">hexo s // 启动服务器</span><br></pre></td></tr></table></figure>
+<p>然后可以在在浏览器中通过地址 <a href="http://localhost:4000/">http://localhost:4000/</a> 访问博客了。</p>
+<h3 id="更换-NexT-主题"><a href="#更换-NexT-主题" class="headerlink" title="更换 NexT 主题"></a>更换 NexT 主题</h3><p>Hexo 更换主题的方式很简单，只需要将主题文件拷贝至根目录下的 themes 目录中， 然后修改根目录下 <code>_config.yml</code> 文件中的 theme 字段，便可完成更换。</p>
+<p>在博客项目的根目录下，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
+<p>打开根目录下 <code>_config.yml</code> 文件,将 theme 字段的值修改为 next。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+<p>这个时候需要重启服务器 <code>hexo g &amp;&amp; hexo s</code> 并刷新才能使主题生效。</p>
+<h3 id="重要定义"><a href="#重要定义" class="headerlink" title="重要定义"></a>重要定义</h3><p>在项目文件中存在两个 <code>_config.yml</code> 文件，为了方便区分。</p>
+<ul>
+<li><p>项目根目录下的 <code>_config.yml</code> 文件叫作<code>站点配置文件</code>。</p>
+</li>
+<li><p>主题文件夹根目录下的 <code>themes/next/_config.yml</code> 文件叫作<code>主题配置文件</code>。</p>
+</li>
+</ul>
+<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><p><strong>GitHub 配置</strong></p>
+<ul>
+<li><p>创建 <a href="https://github.com/">GitHub</a> 账号</p>
+</li>
+<li><p>创建仓库，仓库名必须是：&lt;GitHub 账号名称&gt;.github.io，这是GitHub pages 的特殊命名规范</p>
+</li>
+</ul>
+<p><strong>修改站点配置文件 _config.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;GitHub</span> <span class="string">账号名称&gt;/&lt;GitHub</span> <span class="string">账号名称&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<code>GitHub pages</code> 仅在 <code>master</code> 分支下实现。</p>
+<p><strong>部署</strong>  </p>
+<ul>
+<li>在项目根目录下，安装 Git 部署插件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>部署到 Github Pages</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>部署完成后，在浏览器访问网址：https://&lt;Github账号名称&gt;.github.io 即可查看博客。</p>
+<p>详细过程可以参考：<a href="https://blog.csdn.net/weixin_39510813/article/details/80216552">借助 GitHub pages 搭建静态个人网站并绑定域名</a></p>
 ]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>404</title>
@@ -465,13 +465,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>日程</title>
-    <url>/schedule/index.html</url>
+    <title>标签</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
-    <title>标签</title>
-    <url>/tags/index.html</url>
+    <title>日程</title>
+    <url>/schedule/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>
