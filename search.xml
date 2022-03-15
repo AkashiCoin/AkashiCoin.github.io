@@ -42,21 +42,21 @@
 <p><code>NGROK_TOKEN</code> 中填入在 <code>Ngrok</code> 注册得到的 <code>Authtoken</code></p>
 <p><code>PORT</code> 中填入你搭建应用的端口，Railway 会自动将其转发到给你的域名上</p>
 <p><code>REGION</code> 中填入隧道所在的地区，距离越近越好</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230202715.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230202715.png"></p>
 <p>2、部署完成后会在 <code>Deploy log</code> 中得到ssh连接的地址和端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230207622.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230207622.png"></p>
 <h2 id="二、使用案列，部署Cloudreve私有云"><a href="#二、使用案列，部署Cloudreve私有云" class="headerlink" title="二、使用案列，部署Cloudreve私有云"></a>二、使用案列，部署Cloudreve私有云</h2><h3 id="2-1-安装Cloudreve"><a href="#2-1-安装Cloudreve" class="headerlink" title="2.1 安装Cloudreve"></a>2.1 安装Cloudreve</h3><p>1、因为Cloudreve监听5212端口，但为使 Ngrok 隧道不冲突，所以首先我们去 Railway 删除本次部署</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230238738.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230238738.png"></p>
 <p>2、再去项目中修改 <code>PORT</code> 为 <code>5212</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230233611.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230233611.png"></p>
 <p>3、使用重新得到的ssh连接命令连接到vps，使用命令一键安装Cloudreve，可以使用 <code>tail -f cloudreve.log</code> 查看部署日志得到默认账号密码</p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> cloudreve &amp;&amp; <span class="keyword">cd</span> cloudreve</span><br><span class="line">wget http<span class="variable">s:</span>//pan.yropo.workers.dev/<span class="keyword">source</span>/linux/cloudreve &amp;&amp; chmod +<span class="keyword">x</span> cloudreve</span><br><span class="line">nohup ./cloudreve &gt;&gt; cloudreve.<span class="built_in">log</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
 <h3 id="2-2-访问Cloudreve私有云"><a href="#2-2-访问Cloudreve私有云" class="headerlink" title="2.2 访问Cloudreve私有云"></a>2.2 访问Cloudreve私有云</h3><p>最后访问 Railway给的域名</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230244576.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230244576.png"></p>
 <h3 id="2-3-自定义域名访问"><a href="#2-3-自定义域名访问" class="headerlink" title="2.3 自定义域名访问"></a>2.3 自定义域名访问</h3><p>Railway 可以让我们自定义域名访问，只需要在 <code>Domains</code> 中点击 <code>Add Custom Domain</code> 添加自己的域名，并到自己的 DNS 解析商添加 <code>CNAME</code> 解析便可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230249672.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230249672.png"></p>
 <p>最后的效果图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/Railway-vps/202202230252928.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/Railway-vps/202202230252928.png"></p>
 <p>ps: Cloudreve的配置还没完，可以自行谷歌配置 <code>Redis</code> 、 <code>MySql数据库</code> 、 <code>Aria2离线下载</code> ，另外这个vps的带宽有 10G 口，所以跑一些离线下载啥的还是挺给力<del>(小心被封)(不是</del></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为本质来讲这台 vps 是一个 docker 所以基本上 docker 能干的事他都能干，但实际应用中因为 512M 内存的限制一些程序会爆内存而被杀掉</p>
 <p>但因为一个 docker，而且 railway 也可以 Dockerfile 部署，所以自行修改 Dockerfile 也能玩出一些花来<del>(比如说我自己github的一些项目)(不是</del></p>
@@ -244,49 +244,49 @@
 <p>ps: 上面部署方式是我自己的仓库</p>
 <h4 id="Extra-创建github项目仓库"><a href="#Extra-创建github项目仓库" class="headerlink" title="Extra 创建github项目仓库"></a>Extra 创建github项目仓库</h4><p>1、打开 <a href="https://github.com/">github</a> 登录你自己的账号</p>
 <p>2、点击左边的 <code>New</code> 创建一个仓库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230018715.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202202230018715.png"></p>
 <p>3、在打开的页面中填写仓库名称，然后点击 <code>Create repository</code> 创建仓库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230019403.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202202230019403.png"></p>
 <p>4、在新打开的页面下翻找到 <code>import</code> </p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020258.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202202230020258.png"></p>
 <p>5、在 <code>Your old repository’s clone URL</code> 中填入 <code>https://github.com/bclswl0827/v2ray-heroku.git</code>, 随后点击 <code>Begin import</code> 导入</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020282.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202202230020282.png"></p>
 <p>6、导入完成后，进入仓库，修改 <code>README.md</code> ，修改完成后点击下方 <code>Commit changes</code> 提交</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202202230020762.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202202230020762.png"></p>
 <p>7、最后进入仓库点击 <code>Deploy to Heroku</code> 图标开始部署</p>
 <p>App name随便填写，可用就行；Choose a region就是你的服务器地区；UUID可自行修改（建议修改，使用默认UUID会使节点暴露在危险下）；然后点击<code>Deploy app</code>系统会自动部署</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161405003.png" alt="1.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161405003.png" alt="1.png"></p>
 <p>稍微等待一会儿，几秒的样子，直到全部打勾变绿</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161457921.png" alt="2.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161457921.png" alt="2.png"></p>
 <h2 id="二、客户端使用"><a href="#二、客户端使用" class="headerlink" title="二、客户端使用"></a>二、客户端使用</h2><h3 id="2-1-相关配置信息"><a href="#2-1-相关配置信息" class="headerlink" title="2.1 相关配置信息"></a>2.1 相关配置信息</h3><p>点击Manage App进入你的项目；或者在<a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a>中找的到你的项目并进入</p>
 <p>注意：你会看到一个项目，点击上方的<code>Settings</code>进入，查看你的V2Ray具体配置，如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161458347.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161458347.png"></p>
 <p>点击<code>Reveal Config Vars</code>显示V2RrayN相关配置信息，如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161500120.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161501582.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161500120.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161501582.png"></p>
 <h3 id="2-2-V2rayN配置"><a href="#2-2-V2rayN配置" class="headerlink" title="2.2 V2rayN配置"></a>2.2 V2rayN配置</h3><p>开始配置V2Ray，如果你记好了以上两个（那串字母UUID和二级域名xxxx.herokuapp.com）</p>
 <p>ps: 二级域名不用加<code>https://</code>，直接填域名就好</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161519886.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161519886.png"></p>
 <p>最基础的配置完成了，可以发现节点的速度慢的令人发指，接下来我们利用cloudflare + 自选ip进行加速</p>
 <h2 id="三、Cloudflare-Workers反代加速"><a href="#三、Cloudflare-Workers反代加速" class="headerlink" title="三、Cloudflare Workers反代加速"></a>三、Cloudflare Workers反代加速</h2><p>对速度有要求的人群<s>（强迫症患者）</s>可以看一下；主要是使用Cloudflare Workers加速，虽然免费套餐有调用限制，但是一般个人使用不可能用完</p>
 <h3 id="3-1-创建Cloudflare-Workers"><a href="#3-1-创建Cloudflare-Workers" class="headerlink" title="3.1 创建Cloudflare Workers"></a>3.1 创建Cloudflare Workers</h3><p>在<a href="https://dash.cloudflare.com/">Cloudflare Workers</a>中创建一个Workers</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161538514.png"><br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161542604.png"></p>
-<p>点击<code>快速编辑</code>进入项目编辑<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161545214.png"><br>2.  将原有的示例代码全部删除，复制如下代码，并将第四行的xxx.herokuapp.com 替换为你的V2Ray的地址    ps: 不需要<code>https://</code></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161538514.png"><br><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161542604.png"></p>
+<p>点击<code>快速编辑</code>进入项目编辑<br><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161545214.png"><br>2.  将原有的示例代码全部删除，复制如下代码，并将第四行的xxx.herokuapp.com 替换为你的V2Ray的地址    ps: 不需要<code>https://</code></p>
 <figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line">	<span class="string">&quot;fetch&quot;</span>,event =&gt; &#123;</span><br><span class="line">		<span class="keyword">let</span> url=<span class="keyword">new</span> URL(event.<span class="built_in">request</span>.url);</span><br><span class="line">		url.hostname=<span class="string">&quot;xxxx.herokuapp.com&quot;</span>;</span><br><span class="line">		<span class="keyword">let</span> <span class="built_in">request</span>=<span class="keyword">new</span> <span class="built_in">Request</span>(url,event.<span class="built_in">request</span>);</span><br><span class="line">		event. respondWith(</span><br><span class="line">			fetch(<span class="built_in">request</span>)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>点击右侧的<code>发送</code>按钮，看最后一行是否出现了<code>Bad Request</code>，出现则代表成功</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161554105.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161554105.png"></p>
 <p>成功后，点击<code>保存并部署</code>，并记下你的Workers二级域名</p>
-<h3 id="3-2修改V2rayN中的配置"><a href="#3-2修改V2rayN中的配置" class="headerlink" title="3.2修改V2rayN中的配置"></a>3.2修改V2rayN中的配置</h3><p>把V2RayN中原来的域名改为现在的Workers域名就行了，其实利用Cloudflare Workers进行反代以后速度已经可以了，但是优选ip以后速度会更加快<br><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161557052.png"></p>
+<h3 id="3-2修改V2rayN中的配置"><a href="#3-2修改V2rayN中的配置" class="headerlink" title="3.2修改V2rayN中的配置"></a>3.2修改V2rayN中的配置</h3><p>把V2RayN中原来的域名改为现在的Workers域名就行了，其实利用Cloudflare Workers进行反代以后速度已经可以了，但是优选ip以后速度会更加快<br><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161557052.png"></p>
 <p><strong>对速度有更高追求以及不怕折腾的人可以接着往下看</strong></p>
 <h2 id="四、Cloudflare自选IP"><a href="#四、Cloudflare自选IP" class="headerlink" title="四、Cloudflare自选IP"></a>四、Cloudflare自选IP</h2><p>点击下载<a href="https://github.com/badafans/better-cloudflare-ip/releases/lastest/download/batch.zip">IP自选程序</a>，解压，在Windows系统下运行</p>
 <p>其他的<code>使用说明.txt</code>文件中都有说，在此就不过多赘述</p>
 <p>最后，配置V2Ray：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161617481.png"></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161617481.png"></p>
 <h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" title="注意事项"></a>注意事项</h3><p>由于各地的网络情况每天都不同，所以每天（甚至是每半天）的最优节点都不尽相同；但对于一个应急用的已经足够了</p>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><a href="#%E6%95%88%E6%9E%9C%E5%9B%BE" title="效果图"></a>效果图</h2><p>折腾完一圈后的测速：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161619689.png"><em>可见heroku是利用的amazon服务器，而这个速度对于免费的来说已经相当快了</em></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161619689.png"><em>可见heroku是利用的amazon服务器，而这个速度对于免费的来说已经相当快了</em></p>
 <p>实际使用效果图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AkashiCoin/imgs/img/heroku-v2ray-cloudflare/202201161623744.png"><em>从YouTube的视频测试来看还是不错的</em></p>
+<p><img src="https://gitee.com/marne/imgs/raw/master/img/heroku-v2ray-cloudflare/202201161623744.png"><em>从YouTube的视频测试来看还是不错的</em></p>
 <p>比某些大部分的机场免费套餐都好，甚至直逼少数机场的初级付费套餐；对于我这样的穷学生来讲已经够用的。</p>
 ]]></content>
       <categories>
@@ -465,13 +465,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>标签</title>
-    <url>/tags/index.html</url>
+    <title>日程</title>
+    <url>/schedule/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
   <entry>
-    <title>日程</title>
-    <url>/schedule/index.html</url>
+    <title>标签</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
   </entry>
 </search>
