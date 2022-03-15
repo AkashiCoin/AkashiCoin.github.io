@@ -11,8 +11,7 @@ function loadExternalResource(url, type) {
 			tag = document.createElement("link");
 			tag.rel = "stylesheet";
 			tag.href = url;
-		}
-		else if (type === "js") {
+		} else if (type === "js") {
 			tag = document.createElement("script");
 			tag.src = url;
 		}
@@ -35,7 +34,8 @@ if (screen.width >= 768) {
 			waifuPath: live2d_path + "waifu-tips.json",
 			// apiPath: "https://live2d.fghrsh.net/api/",
 			// cdnPath: "https://unpkg.zhimg.com/akilar-live2dapi@latest/"
-			cdnPath: "https://live2d-api.vercel.app/"
+			cdnPath: "https://gitee.com/marne/live2d_api/raw/master/"
+			// cdnPath: "https://live2d-api.vercel.app/"
 		});
 	});
 }
