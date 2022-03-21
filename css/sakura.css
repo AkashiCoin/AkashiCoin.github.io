@@ -62,15 +62,35 @@
 }
 
 /*全局背景渐变色*/
+#content-inner {
+    --light_bg_color: rgba(255, 255, 255, 0.8);
+    --dark_bg_color: hsla(0, 0%, 7%, .8);
+    --light_page_color: rgba(255, 255, 255, 0.8);
+    --dark_page_color: hsla(0, 0%, 7%, .8)
+}
+
 #recent-posts>.recent-post-item,
 .layout>div:first-child:not(.recent-posts),
 .layout_post>#page,
 .layout_post>#post,
 .read-mode .layout_post>#post {
-    background: var(--light_bg_color)
+    background: var(--light_page_color)
+}
+
+[data-theme=dark] #recent-posts>.recent-post-item,
+[data-theme=dark] .layout>div:first-child:not(.recent-posts),
+[data-theme=dark] .layout_post>#page,
+[data-theme=dark] .layout_post>#post,
+[data-theme=dark] .read-mode .layout_post>#post {
+    background: var(--dark_page_color)
 }
 
 #aside-content .card-widget,
 .sticky_layout>.card-widget {
     background: var(--light_bg_color)
+}
+
+[data-theme=dark] #aside-content .card-widget,
+.sticky_layout>.card-widget {
+    background: var(--dark_bg_color)
 }
