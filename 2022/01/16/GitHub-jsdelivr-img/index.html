@@ -7,13 +7,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.keepdai.cn/77230833517097600.webp">
 <meta property="article:published_time" content="2022-01-16T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-01-16T17:28:27.239Z">
+<meta property="article:modified_time" content="2022-03-21T19:27:52.580Z">
 <meta property="article:author" content="Sakura">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="jsdelivr">
 <meta property="article:tag" content="图床">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.keepdai.cn/77230833517097600.webp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://smoe.top/2022/01/16/GitHub-jsdelivr-img/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://cdn.keepdai.cn/77230833517097600.webp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://smoe.top/2022/01/16/GitHub-jsdelivr-img/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?3dfffcaabebe0d3873101c37f2471257";
@@ -30,7 +30,7 @@ gtag('config', 'G-SJDKPCTH30');
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
   translate: undefined,
   noticeOutdate: {"limitDay":30,"position":"top","messagePrev":"距离文章编辑已经过去了","messageNext":"天，实际情况可能有所变动。"},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -59,14 +59,14 @@ gtag('config', 'G-SJDKPCTH30');
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isAnchor: false
+  isAnchor: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '利用GitHub+jsdelivr搭建一个图床',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-01-17 01:28:27'
+  postUpdate: '2022-03-22 03:27:52'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -174,55 +174,55 @@ gtag('config', 'G-SJDKPCTH30');
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/sakura.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/akashicoin/akashicoin.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页|Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章|Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签|Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类|Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接|Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于|About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.keepdai.cn/77230833517097600.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sakura's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页|Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章|Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签|Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类|Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接|Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于|About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">利用GitHub+jsdelivr搭建一个图床</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-16T09:08:00.000Z" title="发表于 2022-01-16 17:08:00">2022-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-16T17:28:27.239Z" title="更新于 2022-01-17 01:28:27">2022-01-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%AB%99/">网站</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">867</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="利用GitHub+jsdelivr搭建一个图床"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+    })(window)</script><link defer rel="stylesheet" href="/css/index.css"><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/akashicoin/akashicoin.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页|Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章|Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签|Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类|Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接|Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于|About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.keepdai.cn/77230833517097600.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sakura's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页|Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章|Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签|Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类|Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接|Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于|About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">利用GitHub+jsdelivr搭建一个图床</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-16T09:08:00.000Z" title="发表于 2022-01-16 17:08:00">2022-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-21T19:27:52.580Z" title="更新于 2022-03-22 03:27:52">2022-03-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%AB%99/">网站</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">869</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="利用GitHub+jsdelivr搭建一个图床"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
 <p>转载自 Daibi_mua <a target="_blank" rel="noopener" href="https://blog.keepdai.cn/jsdelivr.html">https://blog.keepdai.cn/jsdelivr.html</a><br>Daibi_mua 大佬的博客 <a target="_blank" rel="noopener" href="https://keepdai.cn/">https://keepdai.cn</a></p>
 </blockquote>
 <h1 id="图床的选择"><a href="#图床的选择" class="headerlink" title="图床的选择:"></a><a href="#%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9" title="图床的选择:"></a>图床的选择:</h1><ol>
-<li> 微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
-<li> SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
-<li> 大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
-<li> GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
+<li>微博图床:以前我是经常用的,后来开启防盗链就开始麻烦起来了,所以果断放弃</li>
+<li>SM.MS:稳定,经营了四年多了,但是是国外服务器,速度堪忧</li>
+<li>大厂储存服务:例如七牛云、又拍云、腾讯云COS、阿里云OSS等，操作繁琐，又是实名认证又是域名备案的，麻烦，而且还要花钱（有钱又不怕麻烦的当我没说）</li>
+<li>GitHub图床:免费，但是国内访问速度慢（不过没关系，利用 <code>jsDelivr</code> 提供的免费的 CDN 加速 速度足够了）</li>
 </ol>
 <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a><a href="#%E6%96%B9%E6%B3%95" title="方法"></a>方法</h1><h2 id="新建-GitHub-仓库"><a href="#新建-GitHub-仓库" class="headerlink" title="新建 GitHub 仓库"></a><a href="#%E6%96%B0%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93" title="新建 GitHub 仓库"></a>新建 GitHub 仓库<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@424fd2eb0c23da9b0618116308bf4088b55ef21d/2021/01/24/d6776c6f890e614598c8c67d677a6a13.png"></a></h2><p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@29ae88b26443b7c1f7403ff2c8c1a5b4f94da79c/2021/01/24/ed784289cf94c93bae85e996f6630cbe.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <h2 id="生成一个-Token"><a href="#生成一个-Token" class="headerlink" title="生成一个 Token"></a><a href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-Token" title="生成一个 Token"></a>生成一个 Token</h2><ul>
-<li><p>  点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p>点击用户头像 -&gt; 选择 设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@0e39addd9169fc762ada516c2790bc5725a7df9d/2021/01/24/d0d3822be5af7e9851a6461dd95fc4db.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p>  点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p>点击开发者设置<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c7e4542abc39b700cf6638e92dd7cb72d220b29d/2021/01/24/a0912af7c97647331fe9b25677ac7367.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p>  点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p>点击Personal access tokens<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7cb21955b032aee0e574638c210c5ff12561d931/2021/01/24/0cad3ab9effa2738a4e99b6b8e8de966.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p>  点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p>点击Generate new token<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@c88b9dc8c04c256dd2f8ab4a0ac4a898b6d20c55/2021/01/24/9f84a1744ad9d49f8b91c7105d55ae4b.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p>  填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
+<li><p>填写Token描述，勾选repo然后点击Generate token生成一个Token</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@64b1db98bc6ccba37d0cbe71f8d0128f52219e30/2021/01/24/8ead9e9590df7c8801b75014d83018fc.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <ul>
-<li>  获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
+<li>获取 Token密钥&gt; 注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页</li>
 </ul>
 <h2 id="配置-PicGo-并使用-jsdelivr-作为-CDN-加速"><a href="#配置-PicGo-并使用-jsdelivr-作为-CDN-加速" class="headerlink" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a><a href="#%E9%85%8D%E7%BD%AE-PicGo-%E5%B9%B6%E4%BD%BF%E7%94%A8-jsdelivr-%E4%BD%9C%E4%B8%BA-CDN-%E5%8A%A0%E9%80%9F" title="配置 PicGo 并使用 jsdelivr 作为 CDN 加速"></a>配置 PicGo 并使用 jsdelivr 作为 CDN 加速</h2><blockquote>
 <p>前往下载PicG（<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/picgo/releases">点击下载</a>），安装好后开始配置图床</p>
 </blockquote>
-<p>设定仓库名：按照用户名/图床仓库名 的格式填写</p>
+<p>设定仓库名：按照用户名&#x2F;图床仓库名 的格式填写</p>
 <p>设定分支名：main</p>
 <p>设定 Token：粘贴之前生成的Token</p>
-<p>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
+<p>指定存储路径：填写想要储存的路径，如 img&#x2F;，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中</p>
 <p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF">https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</a> #默认是main</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@bf4e584c882f501b6e8bb3ae55b5a17df9b73d33/2021/01/24/1ce5e15083a20654d8d694f58ffa2fe6.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <h2 id="使用第三方图床使用GitHub图床"><a href="#使用第三方图床使用GitHub图床" class="headerlink" title="使用第三方图床使用GitHub图床"></a><a href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8GitHub%E5%9B%BE%E5%BA%8A" title="使用第三方图床使用GitHub图床"></a>使用第三方图床使用GitHub图床</h2><p>因为GitHub服务器在国外,国内经常抽风,导致上传失败,这时候就可以自己白嫖一个国外服务器然后搭建一个api通过这个api上传到GitHub,<a target="_blank" rel="noopener" href="https://github.com/yumusb/autoPicCdn">个人版本</a>;当然如果你嫌烦,可以用<a target="_blank" rel="noopener" href="https://chuibi.cn/">吹逼图床</a></p>
 <ul>
-<li><p>  在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
+<li><p>在picGo下载插件<img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@d285a3836b5aee2038800f37062378ff61991e13/2021/01/24/89fdd9c4b649e26a5a2cd90cc673ae92.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 </li>
-<li><p>  然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
+<li><p>然后登录使用GitHub登录吹逼图床,然后再次点击用户图标进行设置</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@3be766c8839bcf069b22725aabbedf9aafbdffed/2021/01/24/1d2f4f4c715c41d103725fa59cc7b133.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <ul>
-<li>  然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
+<li>然后在主界面复制你的接口[注意不要泄露这个接口,不然他人就可以使用你的接口上传图片]</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@5efcd17edd183aadef21681265ac0866799ae177/2021/01/24/a8a71bcca4cd13fbb4b6e7fb7ecacf66.png" alt="![](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <ul>
-<li>  回到picGo进行配置</li>
+<li>回到picGo进行配置</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@7f388e99a1034a766166b9f872d016263d6476c9/2021/01/24/857847e0e6ee0e1385bc1abdf5eccf3f.png" alt="![image-20210124132702587](https://cdn.jsdelivr.net/gh/Daibi-mua/cdn2@main/loading.gif)"></p>
 <p>接下来你就可以愉快的使用GitHub+jsdelivr当作图库啦</p>
@@ -239,7 +239,7 @@ gtag('config', 'G-SJDKPCTH30');
       appKey: 'lQOzzDeQKyAkLUwFSNMyuJ8A',
       avatar: 'monsterid',
       serverURLs: '',
-      emojiMaps: "",
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
       path: window.location.pathname,
       visitor: false
     }, null))
@@ -256,7 +256,170 @@ if ('Valine' === 'Valine' || !true) {
   function loadOtherComment () {
     loadValine()
   }
-}</script></div><script src="https://api.smoe.top/live2d/autoload.js"></script><script id="canvas_nest" defer="defer" color="255,0,0" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://3hp9fFXn.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": '3hp9fFXnDlyBQqJaB4nePv9Y-gzGzoHsz',
+        "X-LC-Key": 'lQOzzDeQKyAkLUwFSNMyuJ8A',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async src="https://api.smoe.top/live2d/autoload.js"></script><script id="canvas_nest" defer="defer" color="255,0,0" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-SJDKPCTH30', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
   <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.16/hexo_githubcalendar.js"></script>
   <script data-pjax>
         function GithubCalendarConfig(){
