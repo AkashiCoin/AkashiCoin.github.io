@@ -8,3 +8,4 @@ Disallow: /img/
 Disallow: /assets/
 
 Sitemap: https://www.smoe.top/sitemap.xml
+Sitemap: https://www.smoe.top/baidusitemap.xml
