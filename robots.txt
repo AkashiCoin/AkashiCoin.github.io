@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /about/
+Disallow: /img/
+Disallow: /assets/
+
+Sitemap: https://www.smoe.top/sitemap.xml
