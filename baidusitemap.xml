@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.smoe.top/2022/01/17/OracleARM-tgbot/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <loc>https://www.smoe.top/2022/05/29/workers-dev-dns/</loc>
+    <lastmod>2022-05-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.smoe.top/2022/01/16/heroku-v2ray-cloudflare/</loc>
+    <lastmod>2022-05-29</lastmod>
   </url>
   <url>
     <loc>https://www.smoe.top/2022/01/16/GitHub-jsdelivr-img/</loc>
+    <lastmod>2022-05-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.smoe.top/2022/05/29/heroku-xray-cloudflare/</loc>
+    <lastmod>2022-05-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.smoe.top/2022/01/17/OracleARM-tgbot/</loc>
     <lastmod>2022-05-19</lastmod>
   </url>
   <url>
@@ -23,10 +35,6 @@
   <url>
     <loc>https://www.smoe.top/2022/03/25/zhenxun-bot-deploy/</loc>
     <lastmod>2022-03-24</lastmod>
-  </url>
-  <url>
-    <loc>https://www.smoe.top/2022/01/16/heroku-v2ray-cloudflare/</loc>
-    <lastmod>2022-03-22</lastmod>
   </url>
   <url>
     <loc>https://www.smoe.top/2020/12/27/Hexo-start/</loc>

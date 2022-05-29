@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.smoe.top/2022/01/17/OracleARM-tgbot/</loc>
+    <loc>https://www.smoe.top/2022/05/29/workers-dev-dns/</loc>
     
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.smoe.top/2022/01/16/heroku-v2ray-cloudflare/</loc>
+    
+    <lastmod>2022-05-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +21,24 @@
   
   <url>
     <loc>https://www.smoe.top/2022/01/16/GitHub-jsdelivr-img/</loc>
+    
+    <lastmod>2022-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.smoe.top/2022/05/29/heroku-xray-cloudflare/</loc>
+    
+    <lastmod>2022-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.smoe.top/2022/01/17/OracleARM-tgbot/</loc>
     
     <lastmod>2022-05-19</lastmod>
     
@@ -50,15 +77,6 @@
     <loc>https://www.smoe.top/2022/03/25/zhenxun-bot-deploy/</loc>
     
     <lastmod>2022-03-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.smoe.top/2022/01/16/heroku-v2ray-cloudflare/</loc>
-    
-    <lastmod>2022-03-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -157,7 +175,7 @@
 
   <url>
     <loc>https://www.smoe.top/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -165,63 +183,70 @@
   
   <url>
     <loc>https://www.smoe.top/tags/github/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/jsdelivr/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/Hexo/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/vps/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/v2ray/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/heroku/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/tags/cloudflare/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.smoe.top/tags/xray/</loc>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -230,28 +255,35 @@
   
   <url>
     <loc>https://www.smoe.top/categories/%E7%BD%91%E7%AB%99/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/categories/Hexo/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/categories/vps/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.smoe.top/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
-    <lastmod>2022-05-19</lastmod>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.smoe.top/categories/cloudflare/</loc>
+    <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
